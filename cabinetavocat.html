@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maître Rousseau & Associés — Cabinet d'Avocats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --noir: #0e0e0e;
+  --noir2: #141414;
+  --noir3: #1a1a1a;
+  --or: #c9953a;
+  --or-clair: #e0b060;
+  --or-pale: rgba(201,149,58,0.15);
+  --creme: #f0ece4;
+  --gris: #888;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--noir); color:var(--creme); overflow-x:hidden; }
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--noir); }
+::-webkit-scrollbar-thumb { background:var(--or); border-radius:2px; }
+
+/* ── NAV ── */
+nav {
+  position:fixed; top:0; width:100%; z-index:100;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:1.2rem 5%; background:rgba(14,14,14,0.95);
+  backdrop-filter:blur(20px); border-bottom:1px solid rgba(201,149,58,0.18);
+}
+.nav-logo {
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem; font-weight:700; color:var(--or);
+  text-decoration:none; letter-spacing:.04em;
+}
+.nav-logo span { color:var(--creme); font-weight:400; }
+.nav-links { display:flex; gap:2.2rem; list-style:none; align-items:center; }
+.nav-links a {
+  color:rgba(240,236,228,.65); text-decoration:none;
+  font-size:.72rem; font-weight:500; letter-spacing:.14em;
+  text-transform:uppercase; transition:color .3s;
+}
+.nav-links a:hover { color:var(--or); }
+.nav-cta {
+  background:var(--or)!important; color:var(--noir)!important;
+  padding:.55rem 1.4rem; font-weight:600!important;
+  letter-spacing:.12em!important; transition:all .3s!important;
+  border-radius:2px; display:inline-flex; align-items:center; gap:.4rem;
+}
+.nav-cta:hover { background:var(--or-clair)!important; transform:translateY(-1px); box-shadow:0 6px 20px rgba(201,149,58,.4); }
+
+/* ── HERO ── */
+#hero {
+  min-height:100vh; padding:0 5%;
+  display:grid; grid-template-columns:1fr 1fr;
+  align-items:center; gap:4rem;
+  background:var(--noir);
+  position:relative; overflow:hidden;
+  padding-top:80px;
+}
+#hero::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 60% 80% at 70% 50%, rgba(201,149,58,.06) 0%, transparent 70%),
+    repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(201,149,58,.015) 50px, rgba(201,149,58,.015) 51px);
+  pointer-events:none;
+}
+.hero-left { position:relative; z-index:2; padding:4rem 0; }
+.hero-badge {
+  display:inline-block; border:1px solid rgba(201,149,58,.4);
+  color:rgba(240,236,228,.7); font-size:.65rem; letter-spacing:.2em;
+  text-transform:uppercase; padding:.4rem 1rem; border-radius:20px;
+  margin-bottom:2rem;
+}
+.hero-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.8rem,5vw,4.5rem);
+  font-weight:900; line-height:1.08;
+  margin-bottom:1.6rem;
+}
+.hero-title .gold { color:var(--or); font-style:italic; }
+.hero-title .light { font-weight:400; }
+.hero-sub {
+  font-size:.9rem; line-height:1.85; color:rgba(240,236,228,.6);
+  max-width:440px; margin-bottom:2.8rem; font-weight:300;
+}
+.hero-cta {
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:var(--or); color:var(--noir);
+  padding:1rem 2.2rem; font-size:.75rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  text-decoration:none; border-radius:2px;
+  transition:all .3s; border:2px solid var(--or);
+}
+.hero-cta:hover { background:var(--or-clair); border-color:var(--or-clair); transform:translateY(-2px); box-shadow:0 12px 40px rgba(201,149,58,.4); }
+.hero-cta .arrow { font-size:1rem; transition:transform .3s; }
+.hero-cta:hover .arrow { transform:translate(3px,-3px); }
+
+/* Hero right — photo frame */
+.hero-right {
+  position:relative; z-index:2;
+  display:flex; justify-content:center; align-items:center;
+  padding:4rem 0;
+}
+.hero-photo-frame {
+  position:relative; width:100%; max-width:460px;
+  border-radius:4px; overflow:hidden;
+}
+.hero-photo-frame::before {
+  content:''; position:absolute; inset:0; z-index:2;
+  background:linear-gradient(to bottom, transparent 60%, rgba(14,14,14,.6) 100%);
+  pointer-events:none;
+}
+.hero-photo-img {
+  width:100%; aspect-ratio:4/5; object-fit:cover;
+  display:block;
+  background:linear-gradient(160deg, #1a120a 0%, #2d1e0a 35%, #3d2808 60%, #241506 100%);
+}
+/* CSS avatar placeholder */
+.hero-photo-placeholder {
+  width:100%; aspect-ratio:4/5; overflow:hidden; display:block; position:relative;
+}
+.hero-avatar {
+  font-size:9rem; filter:drop-shadow(0 20px 40px rgba(0,0,0,.8));
+  position:relative; z-index:2;
+}
+.hero-photo-corner {
+  position:absolute; top:-1px; right:-1px;
+  width:60px; height:60px;
+  border-top:3px solid var(--or); border-right:3px solid var(--or);
+}
+.hero-photo-corner-bl {
+  position:absolute; bottom:-1px; left:-1px;
+  width:60px; height:60px;
+  border-bottom:3px solid var(--or); border-left:3px solid var(--or);
+}
+.hero-badge-overlay {
+  position:absolute; top:1.4rem; left:1.4rem; z-index:3;
+  background:rgba(14,14,14,.8); border:1px solid var(--or);
+  color:var(--or); font-size:.6rem; letter-spacing:.18em;
+  text-transform:uppercase; padding:.35rem .9rem; border-radius:2px;
+  backdrop-filter:blur(10px);
+}
+
+/* ── SCROLL ARROW ── */
+.scroll-hint {
+  position:absolute; bottom:2.5rem; left:50%; transform:translateX(-50%);
+  z-index:5; display:flex; flex-direction:column; align-items:center; gap:.5rem;
+}
+.scroll-circle {
+  width:42px; height:42px; border:1px solid rgba(201,149,58,.4);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--or); font-size:.9rem;
+  animation:bob 2.5s ease-in-out infinite;
+}
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+
+/* ── SECTION COMMUN ── */
+section { padding:7rem 5%; }
+.section-eyebrow {
+  font-size:.62rem; letter-spacing:.3em; text-transform:uppercase;
+  color:var(--or); margin-bottom:1rem;
+  display:flex; align-items:center; gap:.8rem;
+}
+.section-eyebrow::before { content:''; display:block; width:28px; height:1px; background:var(--or); }
+.section-title {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:700; line-height:1.15; margin-bottom:1rem;
+}
+.section-title .gold { color:var(--or); font-style:italic; }
+.section-sub {
+  color:rgba(240,236,228,.5); font-size:.88rem;
+  line-height:1.9; font-weight:300; max-width:520px;
+}
+
+/* ── AUDIENCE SECTION (Método para Advogados equivalent) ── */
+#audience {
+  background:var(--noir2);
+  position:relative; overflow:hidden;
+}
+#audience::before {
+  content:'M'; position:absolute; left:-3%; top:50%; transform:translateY(-50%);
+  font-family:'Playfair Display',serif; font-size:35vw; font-weight:900;
+  color:rgba(201,149,58,.03); pointer-events:none; line-height:1; white-space:nowrap;
+}
+.audience-layout {
+  display:grid; grid-template-columns:1fr 1.6fr; gap:5rem; align-items:start;
+  position:relative; z-index:2;
+}
+.audience-left {}
+.audience-left .section-sub { margin-top:.8rem; }
+.audience-underline {
+  width:50px; height:3px;
+  background:linear-gradient(to right, var(--or), var(--or-clair));
+  margin-top:1.5rem; border-radius:2px;
+}
+.audience-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:1px;
+  background:rgba(201,149,58,.12);
+  border:1px solid rgba(201,149,58,.12);
+  border-radius:4px; overflow:hidden;
+}
+.audience-card {
+  background:var(--noir2); padding:2rem 1.8rem;
+  transition:background .3s; cursor:default; position:relative;
+}
+.audience-card::after {
+  content:''; position:absolute; bottom:0; left:0;
+  width:0; height:2px; background:var(--or);
+  transition:width .4s;
+}
+.audience-card:hover::after { width:100%; }
+.audience-card:hover { background:#191919; }
+.audience-icon {
+  width:42px; height:42px; border-radius:8px;
+  background:var(--or-pale); border:1px solid rgba(201,149,58,.3);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.2rem; margin-bottom:1.2rem;
+}
+.audience-card-title {
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem; font-weight:700; margin-bottom:.5rem;
+}
+.audience-card-text {
+  font-size:.78rem; color:rgba(240,236,228,.5);
+  line-height:1.7; font-weight:300;
+}
+.audience-cta-wrap { text-align:center; margin-top:3.5rem; }
+.btn-outlined-gold {
+  display:inline-flex; align-items:center; gap:.6rem;
+  border:1px solid var(--or); color:var(--or);
+  padding:.9rem 2.2rem; font-size:.72rem; font-weight:600;
+  letter-spacing:.18em; text-transform:uppercase;
+  text-decoration:none; border-radius:2px; transition:all .3s;
+}
+.btn-outlined-gold:hover {
+  background:var(--or); color:var(--noir);
+  box-shadow:0 8px 30px rgba(201,149,58,.35);
+}
+
+/* ── BIO SECTION (O advogado por trás do método equivalent) ── */
+#bio {
+  background:var(--noir);
+  position:relative; overflow:hidden;
+}
+.bio-layout {
+  display:grid; grid-template-columns:1fr 1fr; gap:6rem; align-items:center;
+}
+.bio-photo-wrap { position:relative; }
+.bio-photo {
+  width:100%; aspect-ratio:4/5; border-radius:4px; overflow:hidden;
+  position:relative; display:block;
+}
+.bio-photo::before {
+  content:''; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to bottom, transparent 55%, rgba(14,14,14,.45) 100%);
+  pointer-events:none;
+}
+.bio-photo-corner-tr {
+  position:absolute; top:-1px; right:-1px;
+  width:60px; height:60px;
+  border-top:3px solid var(--or); border-right:3px solid var(--or);
+  z-index:3;
+}
+.bio-photo-corner-bl {
+  position:absolute; bottom:-1px; left:-1px;
+  width:60px; height:60px;
+  border-bottom:3px solid var(--or); border-left:3px solid var(--or);
+  z-index:3;
+}
+.bio-badge-overlay {
+  position:absolute; top:1.4rem; left:1.4rem; z-index:4;
+  background:rgba(14,14,14,.85); border:1px solid rgba(201,149,58,.4);
+  color:rgba(240,236,228,.7); font-size:.6rem; letter-spacing:.18em;
+  text-transform:uppercase; padding:.35rem .9rem; border-radius:2px;
+  backdrop-filter:blur(10px);
+}
+.bio-right { position:relative; z-index:2; }
+.bio-name {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3vw,2.8rem); font-weight:700;
+  color:var(--or); margin-bottom:1.2rem; line-height:1.1;
+}
+.bio-text {
+  font-size:.88rem; line-height:1.95;
+  color:rgba(240,236,228,.65); font-weight:300;
+  margin-bottom:1.4rem;
+}
+.bio-text strong { color:var(--creme); font-weight:600; }
+.bio-text em { font-style:italic; color:var(--or-clair); }
+.bio-sep { width:50px; height:2px; background:linear-gradient(to right,var(--or),transparent); margin:2rem 0; }
+
+/* ── UNIQUENESS SECTION (O que torna único?) ── */
+#uniqueness {
+  background:var(--noir2);
+  text-align:center; position:relative; overflow:hidden;
+}
+#uniqueness::before {
+  content:''; position:absolute; left:50%; top:0; transform:translateX(-50%);
+  width:1px; height:100%;
+  background:linear-gradient(to bottom, transparent, rgba(201,149,58,.2), transparent);
+  pointer-events:none;
+}
+.uniqueness-header { max-width:600px; margin:0 auto 5rem; position:relative; z-index:2; }
+.uniqueness-header .section-eyebrow { justify-content:center; }
+.uniqueness-header .section-eyebrow::before { display:none; }
+.uniqueness-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:2px;
+  background:rgba(201,149,58,.1); border:1px solid rgba(201,149,58,.1);
+  border-radius:4px; overflow:hidden; position:relative; z-index:2;
+}
+.unique-card {
+  background:var(--noir2); padding:3rem 2rem; text-align:center;
+  transition:background .3s; cursor:default; position:relative;
+}
+.unique-card:hover { background:#181818; }
+.unique-card::after {
+  content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+  width:0; height:3px; background:var(--or); transition:width .4s;
+}
+.unique-card:hover::after { width:80%; }
+.unique-num {
+  width:56px; height:56px; border:1px solid var(--or); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 1.5rem;
+  font-family:'Playfair Display',serif; font-size:1.3rem;
+  color:var(--or); background:var(--noir2);
+}
+.unique-icon { font-size:1.5rem; }
+.unique-card-title {
+  font-family:'Playfair Display',serif; font-size:1rem;
+  font-weight:700; margin-bottom:.7rem;
+}
+.unique-card-text { font-size:.78rem; color:rgba(240,236,228,.5); line-height:1.75; font-weight:300; }
+
+/* ── CHIFFRES ── */
+#chiffres {
+  background:var(--or);
+  background-image:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(0,0,0,.04) 30px,rgba(0,0,0,.04) 31px);
+  padding:5rem 5%; color:var(--noir);
+}
+.chiffres-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:2rem; text-align:center; }
+.chiffre-num {
+  font-family:'Playfair Display',serif; font-size:3.5rem;
+  font-weight:900; line-height:1; margin-bottom:.4rem;
+}
+.chiffre-label { font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; opacity:.7; }
+
+/* ── DOMAINES ── */
+#domaines { background:var(--creme); color:var(--noir); }
+#domaines .section-eyebrow { color:var(--or); }
+#domaines .section-eyebrow::before { background:var(--or); }
+#domaines .section-title { color:var(--noir); }
+#domaines .section-sub { color:rgba(14,14,14,.5); }
+.domaines-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:4rem; background:rgba(14,14,14,.08); border:1px solid rgba(14,14,14,.08); border-radius:4px; overflow:hidden; }
+.domaine-card {
+  background:#fff; overflow:hidden; transition:all .35s;
+  cursor:default; position:relative;
+}
+.domaine-card::after { content:''; position:absolute; bottom:0; left:0; width:0; height:3px; background:var(--or); transition:width .4s; }
+.domaine-card:hover::after { width:100%; }
+.domaine-card:hover { transform:translateY(-3px); box-shadow:0 16px 50px rgba(0,0,0,.1); }
+.domaine-visual {
+  width:100%; height:140px; display:flex; align-items:center; justify-content:center;
+  font-size:2.5rem; position:relative;
+}
+.dv-affaires { background:linear-gradient(135deg,#1a1a2e,#0f3460); }
+.dv-famille { background:linear-gradient(135deg,#2d1b33,#6b2d6b); }
+.dv-immo { background:linear-gradient(135deg,#0d1f0d,#2d5a2d); }
+.dv-social { background:linear-gradient(135deg,#1f1a0d,#5a4a1a); }
+.dv-penal { background:linear-gradient(135deg,#1f0d0d,#5a1a1a); }
+.dv-international { background:linear-gradient(135deg,#0d1a2d,#1a3d6b); }
+.dv-tag { position:absolute; bottom:.6rem; right:.8rem; font-size:.5rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.25); }
+.domaine-body { padding:1.6rem 1.8rem 2.2rem; }
+.domaine-title { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; margin-bottom:.6rem; color:var(--noir); }
+.domaine-text { font-size:.78rem; color:rgba(14,14,14,.6); line-height:1.8; font-weight:300; }
+
+/* ── ÉQUIPE ── */
+#equipe { background:var(--noir3); }
+.equipe-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2.5rem; margin-top:4rem; }
+.avocat-wrap { position:relative; }
+.avocat-photo {
+  width:100%; aspect-ratio:3/4; border-radius:4px; overflow:hidden;
+  position:relative; display:block;
+}
+.ap-1 { background:linear-gradient(160deg,#1a1208,#2d1e0a,#4a3010); }
+.ap-2 { background:linear-gradient(160deg,#080d1a,#0d1830,#162845); }
+.ap-3 { background:linear-gradient(160deg,#0d0a18,#1a1028,#2d1a45); }
+.avocat-avatar { font-size:6rem; filter:drop-shadow(0 8px 20px rgba(0,0,0,.5)); }
+.avocat-badge {
+  position:absolute; top:1rem; left:1rem; z-index:3;
+  background:var(--or); color:var(--noir);
+  font-size:.55rem; font-weight:700; letter-spacing:.18em;
+  text-transform:uppercase; padding:.3rem .7rem; border-radius:1px;
+  pointer-events:none;
+}
+.avocat-info { padding:1.5rem 0; }
+.avocat-name { font-family:'Playfair Display',serif; font-size:1.4rem; font-weight:700; margin-bottom:.25rem; }
+.avocat-role { font-size:.62rem; letter-spacing:.18em; text-transform:uppercase; color:var(--or); margin-bottom:.7rem; }
+.avocat-sep { width:36px; height:1px; background:linear-gradient(to right,var(--or),transparent); margin:.8rem 0; }
+.avocat-bio { font-size:.78rem; color:rgba(240,236,228,.45); line-height:1.8; font-weight:300; }
+
+/* ── PROCESSUS ── */
+#processus { background:linear-gradient(160deg,#0d0d0d,#0f0c06); position:relative; overflow:hidden; }
+#processus::before {
+  content:''; position:absolute; top:-20%; right:-5%; width:500px; height:500px;
+  border-radius:50%; background:radial-gradient(circle,rgba(201,149,58,.05),transparent 70%);
+  pointer-events:none;
+}
+.processus-steps {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+  margin-top:5rem; position:relative; z-index:1;
+}
+.processus-steps::before {
+  content:''; position:absolute; top:2.5rem; left:12.5%; right:12.5%; height:1px;
+  background:linear-gradient(to right,var(--or),rgba(201,149,58,.3));
+}
+.step { padding:0 1.5rem; text-align:center; }
+.step-num {
+  width:5rem; height:5rem; border:1px solid var(--or); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 1.5rem;
+  font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:700;
+  color:var(--or); background:#0d0d0d; position:relative; z-index:1;
+}
+.step-title { font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; margin-bottom:.7rem; }
+.step-text { font-size:.78rem; color:rgba(240,236,228,.45); line-height:1.8; font-weight:300; }
+
+/* ── TÉMOIGNAGES ── */
+#temoignages { background:var(--creme); color:var(--noir); }
+#temoignages .section-eyebrow { color:var(--or); }
+#temoignages .section-eyebrow::before { background:var(--or); }
+#temoignages .section-title { color:var(--noir); }
+#temoignages .section-sub { color:rgba(14,14,14,.5); }
+.temoignages-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:4rem; background:rgba(14,14,14,.08); border-radius:4px; overflow:hidden; }
+.temoignage {
+  background:#fff; padding:2.4rem; position:relative;
+  border-left:3px solid var(--or);
+}
+.quote-mark {
+  font-family:'Playfair Display',serif; font-size:6rem;
+  color:var(--or); opacity:.1; position:absolute;
+  top:-.8rem; left:1.5rem; line-height:1;
+}
+.stars { color:var(--or); font-size:.85rem; margin-bottom:1rem; letter-spacing:.08em; }
+.temoignage-text {
+  font-family:'Playfair Display',serif; font-size:1rem;
+  font-style:italic; line-height:1.9; color:rgba(14,14,14,.7); margin-bottom:1.5rem;
+}
+.temoignage-author { font-size:.7rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--or); }
+.temoignage-role { font-size:.68rem; color:rgba(14,14,14,.4); }
+
+/* ── BANDEAU CTA ── */
+#bandeau {
+  padding:7rem 5%; text-align:center;
+  background:linear-gradient(100deg,#0a0a0a,#110e05,#0a0a0a);
+  position:relative; overflow:hidden;
+}
+#bandeau::before {
+  content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:700px; height:2px; background:linear-gradient(to right,transparent,var(--or),transparent); opacity:.25;
+}
+#bandeau::after {
+  content:''; position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+  width:2px; height:320px; background:linear-gradient(to bottom,transparent,var(--or),transparent); opacity:.25;
+}
+.bandeau-inner { position:relative; z-index:2; max-width:700px; margin:0 auto; }
+.bandeau-eyebrow { font-size:.62rem; letter-spacing:.35em; text-transform:uppercase; color:var(--or); margin-bottom:1.8rem; }
+.bandeau-title {
+  font-family:'Playfair Display',serif; font-size:clamp(2rem,4.5vw,3.6rem);
+  font-weight:700; line-height:1.15; margin-bottom:2rem;
+}
+.bandeau-title .gold { color:var(--or); font-style:italic; }
+.bandeau-sep { width:60px; height:1px; background:var(--or); margin:0 auto 2rem; }
+.bandeau-addr { font-size:.78rem; color:rgba(240,236,228,.4); letter-spacing:.15em; }
+
+/* ── RDV ── */
+#rdv { background:linear-gradient(135deg,var(--noir),#12100a); position:relative; overflow:hidden; }
+#rdv::before {
+  content:'RDV'; position:absolute; right:-3%; top:50%; transform:translateY(-50%);
+  font-family:'Playfair Display',serif; font-size:20vw; font-weight:900;
+  color:rgba(201,149,58,.03); pointer-events:none; white-space:nowrap;
+}
+.rdv-layout { display:grid; grid-template-columns:1fr 1.2fr; gap:6rem; align-items:start; position:relative; z-index:2; }
+.rdv-contact-item { display:flex; gap:1.2rem; margin-bottom:2rem; align-items:flex-start; }
+.rdv-contact-icon { color:var(--or); font-size:1.1rem; min-width:1.5rem; margin-top:.1rem; }
+.rdv-contact-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,236,228,.35); margin-bottom:.2rem; }
+.rdv-contact-value { font-size:.88rem; color:var(--creme); }
+.rdv-map {
+  margin-top:2rem; height:170px;
+  border:1px solid rgba(201,149,58,.2);
+  background:
+    linear-gradient(rgba(201,149,58,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,149,58,.025) 1px,transparent 1px),
+    #0d0c08;
+  background-size:28px 28px;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+}
+.rdv-map::after { content:'📍  12 Rue de la Paix · 75002 Paris'; font-size:.7rem; letter-spacing:.12em; color:var(--or); }
+.rdv-horaires { margin-top:2rem; padding:1.8rem; border:1px solid rgba(201,149,58,.2); }
+.rdv-horaires h4 { font-family:'Playfair Display',serif; font-size:1.1rem; margin-bottom:1.2rem; color:var(--or); }
+.horaire-row { display:flex; justify-content:space-between; padding:.55rem 0; border-bottom:1px solid rgba(240,236,228,.05); font-size:.8rem; color:rgba(240,236,228,.55); }
+.rdv-form { background:rgba(255,255,255,.03); border:1px solid rgba(201,149,58,.15); padding:3rem; }
+.form-title { font-family:'Playfair Display',serif; font-size:1.9rem; font-weight:700; margin-bottom:.5rem; }
+.form-sub { font-size:.8rem; color:rgba(240,236,228,.4); margin-bottom:2.5rem; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+.form-group { display:flex; flex-direction:column; gap:.5rem; }
+.form-group.full { grid-column:1/-1; }
+.form-group label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,236,228,.45); }
+.form-group input,.form-group select,.form-group textarea {
+  background:rgba(255,255,255,.04); border:1px solid rgba(201,149,58,.2);
+  color:var(--creme); padding:.85rem 1rem; font-family:'Inter',sans-serif;
+  font-size:.82rem; outline:none; transition:border .3s; -webkit-appearance:none;
+  border-radius:2px;
+}
+.form-group select option { background:#1a1a1a; }
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--or); }
+.form-group textarea { resize:vertical; min-height:95px; }
+.slots-label { font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(240,236,228,.45); display:block; margin-bottom:.8rem; }
+.slots-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:.5rem; }
+.slot { border:1px solid rgba(201,149,58,.2); text-align:center; padding:.55rem .3rem; font-size:.73rem; color:rgba(240,236,228,.55); cursor:pointer; transition:all .25s; user-select:none; border-radius:2px; }
+.slot:hover { border-color:var(--or); color:var(--or); }
+.slot.selected { background:var(--or); color:var(--noir); border-color:var(--or); font-weight:700; }
+.slot.disabled { opacity:.2; cursor:not-allowed; pointer-events:none; }
+.form-submit {
+  margin-top:2rem; background:var(--or); color:var(--noir); border:none;
+  padding:1.1rem; width:100%; font-family:'Inter',sans-serif;
+  font-size:.72rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase;
+  cursor:pointer; transition:all .3s; border-radius:2px;
+}
+.form-submit:hover { background:var(--or-clair); transform:translateY(-1px); box-shadow:0 8px 30px rgba(201,149,58,.4); }
+.form-disclaimer { font-size:.67rem; color:rgba(240,236,228,.25); margin-top:.8rem; text-align:center; line-height:1.7; }
+.success-msg { display:none; text-align:center; padding:3rem 2rem; background:rgba(201,149,58,.08); border:1px solid rgba(201,149,58,.3); border-radius:2px; }
+.success-icon { font-size:3rem; margin-bottom:1rem; }
+.success-msg h3 { font-family:'Playfair Display',serif; font-size:1.9rem; color:var(--or); margin-bottom:.8rem; }
+.success-msg p { font-size:.85rem; color:rgba(240,236,228,.6); line-height:1.8; }
+
+/* ── FOOTER ── */
+footer { background:#060606; border-top:1px solid rgba(201,149,58,.12); padding:4rem 5% 2rem; }
+.footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; margin-bottom:3rem; }
+.footer-logo { font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700; color:var(--or); text-decoration:none; }
+.footer-logo span { color:var(--creme); font-weight:400; }
+.footer-brand p { font-size:.77rem; color:rgba(240,236,228,.35); line-height:1.8; font-weight:300; max-width:240px; margin-top:1rem; }
+.footer-col h5 { font-size:.62rem; letter-spacing:.25em; text-transform:uppercase; color:var(--or); margin-bottom:1.2rem; }
+.footer-col ul { list-style:none; }
+.footer-col ul li { margin-bottom:.55rem; }
+.footer-col ul a { font-size:.77rem; color:rgba(240,236,228,.35); text-decoration:none; transition:color .3s; }
+.footer-col ul a:hover { color:var(--or); }
+.footer-bar { border-top:1px solid rgba(255,255,255,.05); padding-top:1.8rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
+.footer-bar p { font-size:.7rem; color:rgba(240,236,228,.22); }
+.footer-bar-links { display:flex; gap:2rem; }
+.footer-bar-links a { font-size:.68rem; color:rgba(240,236,228,.22); text-decoration:none; transition:color .3s; }
+.footer-bar-links a:hover { color:var(--or); }
+
+/* ── FLOATING BTN ── */
+.floating-rdv {
+  position:fixed; bottom:2rem; right:2rem; z-index:99;
+  background:var(--or); color:var(--noir);
+  padding:.85rem 1.5rem; font-size:.67rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  text-decoration:none; box-shadow:0 8px 30px rgba(201,149,58,.5);
+  transition:all .3s; display:flex; align-items:center; gap:.6rem;
+  border-radius:2px;
+}
+.floating-rdv:hover { background:var(--or-clair); transform:translateY(-3px); }
+.floating-dot { width:7px; height:7px; background:var(--noir); border-radius:50%; animation:pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(1.4)} }
+
+/* ── SCROLL REVEAL ── */
+.reveal { opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* ── BURGER MENU ── */
+.burger {
+  display:none; flex-direction:column; justify-content:center;
+  gap:5px; cursor:pointer; padding:.4rem; z-index:200;
+  background:none; border:none; outline:none;
+}
+.burger span {
+  display:block; width:24px; height:2px;
+  background:var(--creme); border-radius:2px;
+  transition:all .35s cubic-bezier(.4,0,.2,1);
+  transform-origin:center;
+}
+.burger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.burger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+
+/* Mobile nav overlay */
+.mobile-menu {
+  display:none; position:fixed; inset:0; z-index:150;
+  background:rgba(14,14,14,.98); backdrop-filter:blur(20px);
+  flex-direction:column; align-items:center; justify-content:center;
+  gap:0; opacity:0; pointer-events:none;
+  transition:opacity .4s ease;
+}
+.mobile-menu.open {
+  opacity:1; pointer-events:all;
+}
+.mobile-menu ul {
+  list-style:none; text-align:center; width:100%;
+}
+.mobile-menu ul li {
+  border-bottom:1px solid rgba(201,149,58,.1);
+  opacity:0; transform:translateY(18px);
+  transition:opacity .4s ease, transform .4s ease;
+}
+.mobile-menu.open ul li { opacity:1; transform:translateY(0); }
+.mobile-menu.open ul li:nth-child(1) { transition-delay:.05s; }
+.mobile-menu.open ul li:nth-child(2) { transition-delay:.1s; }
+.mobile-menu.open ul li:nth-child(3) { transition-delay:.15s; }
+.mobile-menu.open ul li:nth-child(4) { transition-delay:.2s; }
+.mobile-menu.open ul li:nth-child(5) { transition-delay:.25s; }
+.mobile-menu ul li a {
+  display:block; padding:1.4rem 2rem;
+  font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700;
+  color:var(--creme); text-decoration:none; letter-spacing:.04em;
+  transition:color .3s;
+}
+.mobile-menu ul li a:hover { color:var(--or); }
+.mobile-menu-cta {
+  margin-top:2.5rem;
+  opacity:0; transform:translateY(18px);
+  transition:opacity .4s ease .3s, transform .4s ease .3s;
+}
+.mobile-menu.open .mobile-menu-cta { opacity:1; transform:translateY(0); }
+.mobile-menu-cta a {
+  display:inline-flex; align-items:center; gap:.6rem;
+  background:var(--or); color:var(--noir);
+  padding:1rem 2.5rem; font-size:.75rem; font-weight:700;
+  letter-spacing:.18em; text-transform:uppercase;
+  text-decoration:none; border-radius:2px;
+  transition:all .3s;
+}
+.mobile-menu-cta a:hover { background:var(--or-clair); }
+.mobile-menu-close {
+  position:absolute; top:1.2rem; right:5%;
+  width:44px; height:44px; background:none; border:1px solid rgba(201,149,58,.3);
+  border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  color:var(--creme); font-size:1.3rem; line-height:1;
+  transition:all .3s; z-index:10;
+}
+.mobile-menu-close:hover { background:var(--or); color:var(--noir); border-color:var(--or); }
+  font-family:'Playfair Display',serif; font-size:1.2rem; font-weight:700;
+  color:var(--or); text-decoration:none;
+}
+.mobile-menu-logo span { color:var(--creme); font-weight:400; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  #hero { grid-template-columns:1fr; padding-top:100px; }
+  .hero-right { display:none; }
+  .hero-left { padding:3rem 0 4rem; }
+  .audience-layout { grid-template-columns:1fr; gap:3rem; }
+  .bio-layout { grid-template-columns:1fr; gap:3rem; }
+  .bio-photo-wrap { max-width:380px; }
+  .uniqueness-grid { grid-template-columns:repeat(2,1fr); }
+  .processus-steps { grid-template-columns:repeat(2,1fr); gap:2.5rem; }
+  .processus-steps::before { display:none; }
+  .rdv-layout { grid-template-columns:1fr; gap:4rem; }
+  .footer-grid { grid-template-columns:1fr 1fr 1fr; }
+}
+
+@media(max-width:900px){
+  .burger { display:flex; }
+  .nav-links { display:none; }
+  .mobile-menu { display:flex; }
+  .domaines-grid { grid-template-columns:1fr 1fr; }
+  .equipe-grid { grid-template-columns:1fr 1fr; }
+  .temoignages-grid { grid-template-columns:1fr; }
+  .chiffres-grid { grid-template-columns:repeat(2,1fr); }
+  .footer-grid { grid-template-columns:1fr 1fr; }
+  section { padding:6rem 5%; }
+  .section-title { font-size:clamp(1.8rem,4vw,2.8rem); }
+}
+
+@media(max-width:600px){
+  nav { padding:1rem 5%; }
+  section { padding:4.5rem 5%; }
+  #hero { padding-top:80px; }
+  .hero-title { font-size:clamp(2.2rem,8vw,3.2rem); }
+  .hero-badge { font-size:.6rem; }
+
+  .audience-grid { grid-template-columns:1fr; }
+  .audience-card { padding:1.6rem; }
+
+  .bio-photo-wrap { max-width:100%; }
+
+  .uniqueness-grid { grid-template-columns:1fr 1fr; }
+  .unique-card { padding:2rem 1.2rem; }
+
+  .domaines-grid { grid-template-columns:1fr; }
+
+  .equipe-grid { grid-template-columns:1fr; }
+  .avocat-photo { aspect-ratio:3/3.2; }
+
+  .processus-steps { grid-template-columns:1fr; gap:2rem; }
+  .step { padding:0; }
+
+  .temoignages-grid { grid-template-columns:1fr; }
+  .temoignage { padding:2rem 1.5rem; }
+
+  .chiffres-grid { grid-template-columns:1fr 1fr; }
+  .chiffre-num { font-size:2.8rem; }
+
+  .rdv-form { padding:2rem 1.5rem; }
+  .form-grid { grid-template-columns:1fr; }
+  .slots-grid { grid-template-columns:repeat(3,1fr); }
+
+  .footer-grid { grid-template-columns:1fr; }
+  .footer-bar { flex-direction:column; align-items:flex-start; gap:.8rem; }
+  .footer-bar-links { gap:1.2rem; }
+
+  .bandeau-title { font-size:clamp(1.7rem,6vw,2.6rem); }
+
+  .floating-rdv { bottom:1.2rem; right:1.2rem; padding:.7rem 1.2rem; font-size:.62rem; }
+
+  .scroll-hint { bottom:1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Rousseau <span>& Associés</span></a>
+  <ul class="nav-links">
+    <li><a href="#domaines">Domaines</a></li>
+    <li><a href="#equipe">L'Équipe</a></li>
+    <li><a href="#processus">Approche</a></li>
+    <li><a href="#temoignages">Témoignages</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true">
+  <a href="#" class="mobile-menu-logo">Rousseau <span>& Associés</span></a>
+  <button class="mobile-menu-close" id="menuClose" aria-label="Fermer le menu">✕</button>
+  <ul>
+    <li><a href="#domaines" class="mobile-link">Domaines</a></li>
+    <li><a href="#equipe" class="mobile-link">L'Équipe</a></li>
+    <li><a href="#processus" class="mobile-link">Approche</a></li>
+    <li><a href="#temoignages" class="mobile-link">Témoignages</a></li>
+    <li><a href="#rdv" class="mobile-link">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-cta">
+    <a href="#rdv" class="mobile-link">Prendre rendez-vous ↗</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Bien plus qu'un cabinet</div>
+    <h1 class="hero-title">
+      Pourquoi choisir<br>
+      <span class="gold">Rousseau & Associés</span><br>
+      <span class="light">pour votre défense ?</span>
+    </h1>
+    <p class="hero-sub">Le milieu juridique est de plus en plus concurrentiel. Avoir un dossier solide ne garantit ni le succès ni la sérénité. Nous faisons la différence.</p>
+    <a href="#rdv" class="hero-cta">Fala com especialista <span class="arrow">↗</span></a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-photo-frame">
+      <img 
+        src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=900&q=85&fit=crop&crop=top" 
+        alt="Avocat professionnel"
+        style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;display:block;"
+      />
+      <div class="hero-photo-corner"></div>
+      <div class="hero-photo-corner-bl"></div>
+      <div class="hero-badge-overlay">Cabinet · Paris</div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-circle">↓</div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="audience-layout">
+    <div class="audience-left reveal">
+      <div class="section-eyebrow">Pour qui ?</div>
+      <h2 class="section-title">
+        Méthode pour<br>
+        <span class="gold">tous les justiciables</span>
+      </h2>
+      <p class="section-sub">Adapté à toutes les situations juridiques, quel que soit votre profil.</p>
+      <div class="audience-underline"></div>
+    </div>
+    <div>
+      <div class="audience-grid">
+        <div class="audience-card reveal">
+          <div class="audience-icon">🎓</div>
+          <div class="audience-card-title">Particuliers</div>
+          <p class="audience-card-text">Pour défendre vos droits efficacement dès le départ.</p>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-icon">🏢</div>
+          <div class="audience-card-title">Chefs d'entreprise</div>
+          <p class="audience-card-text">Pour attirer des solutions plus qualifiées et sécurisées.</p>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-icon">⚖️</div>
+          <div class="audience-card-title">Jeunes avocats</div>
+          <p class="audience-card-text">Pour s'intégrer au marché avec les bons outils.</p>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-icon">🌍</div>
+          <div class="audience-card-title">Associés</div>
+          <p class="audience-card-text">Pour mettre en œuvre des stratégies de développement.</p>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-icon">💼</div>
+          <div class="audience-card-title">Independants</div>
+          <p class="audience-card-text">Pour se démarquer dans un marché concurrentiel.</p>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-icon">🏛️</div>
+          <div class="audience-card-title">Institutionnels</div>
+          <p class="audience-card-text">Pour des conseils stratégiques à grande échelle.</p>
+        </div>
+      </div>
+      <div class="audience-cta-wrap">
+        <a href="#rdv" class="btn-outlined-gold">Fala com especialista ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIO -->
+<section id="bio">
+  <div class="bio-layout">
+    <div class="bio-photo-wrap reveal">
+      <div class="bio-photo" style="background:none;">
+        <img 
+          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=85&fit=crop&crop=top" 
+          alt="Maître Claire Rousseau"
+          style="width:100%;height:100%;object-fit:cover;object-position:top center;position:absolute;inset:0;"
+        />
+      </div>
+      <div class="bio-photo-corner-tr"></div>
+      <div class="bio-photo-corner-bl"></div>
+      <div class="bio-badge-overlay">La fondatrice du cabinet</div>
+    </div>
+    <div class="bio-right reveal">
+      <div class="section-eyebrow">L'avocate derrière la méthode</div>
+      <h2 class="bio-name">Maître Claire Rousseau</h2>
+      <p class="bio-text">
+        Reconnue nationalement pour son action dans différents domaines du droit, 
+        Maître Rousseau a <strong>bâti l'un des cabinets les plus respectés de Paris</strong>, 
+        avec une présence dans plusieurs juridictions.
+      </p>
+      <p class="bio-text">
+        Avec plus de 25 ans de carrière, elle a <strong>conseillé des centaines de clients</strong> 
+        et connaît exactement quelles stratégies fonctionnent en pratique pour atteindre 
+        le meilleur résultat. Chez Rousseau & Associés, elle <em>révèle les coulisses de sa 
+        trajectoire, ses stratégies éprouvées et les erreurs à éviter</em> pour construire 
+        une défense solide, efficace et respectée.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- UNIQUENESS -->
+<section id="uniqueness">
+  <div class="uniqueness-header reveal">
+    <div class="section-eyebrow">Notre différence</div>
+    <h2 class="section-title">Ce qui rend<br><span class="gold">Rousseau & Associés</span> unique ?</h2>
+    <p class="section-sub" style="max-width:500px;margin:1rem auto 0;">Découvrez ce qui fait de notre approche une méthode unique et efficace pour transformer votre situation juridique.</p>
+  </div>
+  <div class="uniqueness-grid">
+    <div class="unique-card reveal">
+      <div class="unique-num"><span class="unique-icon">🔍</span></div>
+      <div class="unique-card-title">Analyse approfondie</div>
+      <p class="unique-card-text">Chaque dossier est étudié sous tous ses angles avant toute stratégie.</p>
+    </div>
+    <div class="unique-card reveal">
+      <div class="unique-num"><span class="unique-icon">✓</span></div>
+      <div class="unique-card-title">Stratégie sur-mesure</div>
+      <p class="unique-card-text">Aucun dossier ne ressemble à un autre, aucune défense non plus.</p>
+    </div>
+    <div class="unique-card reveal">
+      <div class="unique-num"><span class="unique-icon">★</span></div>
+      <div class="unique-card-title">Excellence prouvée</div>
+      <p class="unique-card-text">98% de clients satisfaits sur plus de 1400 dossiers traités.</p>
+    </div>
+    <div class="unique-card reveal">
+      <div class="unique-num"><span class="unique-icon">💬</span></div>
+      <div class="unique-card-title">Disponibilité totale</div>
+      <p class="unique-card-text">Un interlocuteur dédié, joignable, engagé à vos côtés.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CHIFFRES CLÉS -->
+<div id="chiffres">
+  <div class="chiffres-grid">
+    <div class="reveal"><div class="chiffre-num">25+</div><div class="chiffre-label">Années d'exercice</div></div>
+    <div class="reveal"><div class="chiffre-num">1400+</div><div class="chiffre-label">Dossiers traités</div></div>
+    <div class="reveal"><div class="chiffre-num">98%</div><div class="chiffre-label">Clients satisfaits</div></div>
+    <div class="reveal"><div class="chiffre-num">6</div><div class="chiffre-label">Domaines d'expertise</div></div>
+  </div>
+</div>
+
+<!-- DOMAINES -->
+<section id="domaines">
+  <div class="section-eyebrow">Expertise juridique</div>
+  <h2 class="section-title">Nos domaines <span class="gold">d'intervention</span></h2>
+  <p class="section-sub">Une couverture juridique complète pour particuliers et entreprises, avec une spécialisation pointue dans chaque domaine.</p>
+  <div class="domaines-grid">
+    <div class="domaine-card reveal">
+      <div class="domaine-visual" style="position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80&fit=crop" alt="Droit des Affaires" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,30,.75),rgba(15,52,96,.6));"></div>
+        <span style="position:relative;z-index:2;font-size:2rem;">⚖️</span><span class="dv-tag">Business Law</span>
+      </div>
+      <div class="domaine-body"><div class="domaine-title">Droit des Affaires</div><p class="domaine-text">Création de sociétés, contrats commerciaux, fusions-acquisitions, litiges entre associés. Nous sécurisons chaque étape de votre activité.</p></div>
+    </div>
+    <div class="domaine-card reveal">
+      <div class="domaine-visual" style="position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&q=80&fit=crop" alt="Droit de la Famille" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(45,27,51,.75),rgba(107,45,107,.6));"></div>
+        <span style="position:relative;z-index:2;font-size:2rem;">🏛️</span><span class="dv-tag">Family Law</span>
+      </div>
+      <div class="domaine-body"><div class="domaine-title">Droit de la Famille</div><p class="domaine-text">Divorce, garde d'enfants, succession, adoption. Un accompagnement humain dans les moments les plus délicats de votre vie.</p></div>
+    </div>
+    <div class="domaine-card reveal">
+      <div class="domaine-visual" style="position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&q=80&fit=crop" alt="Droit Immobilier" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,31,13,.75),rgba(45,90,45,.6));"></div>
+        <span style="position:relative;z-index:2;font-size:2rem;">🏗️</span><span class="dv-tag">Real Estate Law</span>
+      </div>
+      <div class="domaine-body"><div class="domaine-title">Droit Immobilier</div><p class="domaine-text">Transactions, baux, copropriété, contentieux locatif. Nous protégeons votre patrimoine immobilier à chaque étape.</p></div>
+    </div>
+    <div class="domaine-card reveal">
+      <div class="domaine-visual" style="position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=80&fit=crop" alt="Droit Social" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,26,13,.75),rgba(90,74,26,.6));"></div>
+        <span style="position:relative;z-index:2;font-size:2rem;">👔</span><span class="dv-tag">Labor Law</span>
+      </div>
+      <div class="domaine-body"><div class="domaine-title">Droit Social & Travail</div><p class="domaine-text">Licenciements, harcèlement, négociations salariales, conseil aux employeurs. Votre droit du travail en bonnes mains.</p></div>
+    </div>
+    <div class="domaine-card reveal">
+      <div class="domaine-visual" style="position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=500&q=80&fit=crop" alt="Droit Pénal" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,13,13,.78),rgba(90,26,26,.6));"></div>
+        <span style="position:relative;z-index:2;font-size:2rem;">🛡️</span><span class="dv-tag">Criminal Law</span>
+      </div>
+      <div class="domaine-body"><div class="domaine-title">Droit Pénal</div><p class="domaine-text">Défense pénale, infractions économiques, assistance aux victimes. Une défense stratégique et résolue à chaque audience.</p></div>
+    </div>
+    <div class="domaine-card reveal">
+      <div class="domaine-visual" style="position:relative;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5ce?w=500&q=80&fit=crop" alt="Droit International" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,26,45,.75),rgba(26,61,107,.6));"></div>
+        <span style="position:relative;z-index:2;font-size:2rem;">🌍</span><span class="dv-tag">International Law</span>
+      </div>
+      <div class="domaine-body"><div class="domaine-title">Droit International</div><p class="domaine-text">Arbitrage international, contrats transfrontaliers, droit de l'UE. Une vision globale pour vos enjeux internationaux.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE -->
+<section id="equipe">
+  <div class="section-eyebrow">Des experts à votre service</div>
+  <h2 class="section-title">Notre <span class="gold">équipe</span></h2>
+  <p class="section-sub">Des avocats passionnés, rigoureux et disponibles, qui font de votre cause leur priorité absolue.</p>
+  <div class="equipe-grid">
+    <div class="avocat-wrap reveal">
+      <div class="avocat-photo" style="background:none;overflow:hidden;">
+        <img src="claire.webp" alt="Maître Claire Rousseau" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/>
+        <div class="avocat-badge">Fondatrice</div>
+      </div>
+      <div class="avocat-info">
+        <div class="avocat-name">Maître Claire Rousseau</div>
+        <div class="avocat-role">Associée fondatrice · Droit des affaires</div>
+        <div class="avocat-sep"></div>
+        <p class="avocat-bio">Ancienne collaboratrice de cabinets internationaux, Maître Rousseau cumule 25 ans d'expérience en droit des sociétés et contentieux commercial.</p>
+      </div>
+    </div>
+    <div class="avocat-wrap reveal">
+      <div class="avocat-photo" style="background:none;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=85&fit=crop&crop=top" alt="Maître Thomas Lemaître" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/>
+        <div class="avocat-badge">Associé</div>
+      </div>
+      <div class="avocat-info">
+        <div class="avocat-name">Maître Thomas Lemaître</div>
+        <div class="avocat-role">Associé · Droit de la famille</div>
+        <div class="avocat-sep"></div>
+        <p class="avocat-bio">Spécialiste reconnu en droit de la famille et des successions, il accompagne ses clients avec empathie et efficacité depuis 18 ans.</p>
+      </div>
+    </div>
+    <div class="avocat-wrap reveal">
+      <div class="avocat-photo" style="background:none;overflow:hidden;">
+        <img src="https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&q=85&fit=crop&crop=top" alt="Maître Sofia Benali" style="width:100%;height:100%;object-fit:cover;object-position:top center;"/>
+        <div class="avocat-badge">Avocate</div>
+      </div>
+      <div class="avocat-info">
+        <div class="avocat-name">Maître Sofia Benali</div>
+        <div class="avocat-role">Avocate · Droit pénal & social</div>
+        <div class="avocat-sep"></div>
+        <p class="avocat-bio">Ancienne avocate au Barreau de Bruxelles, Maître Benali apporte une double expertise en droit pénal des affaires et droit européen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESSUS -->
+<section id="processus">
+  <div class="section-eyebrow">Comment travaillons-nous</div>
+  <h2 class="section-title">Une approche <span class="gold">structurée</span></h2>
+  <p class="section-sub">De la première consultation jusqu'à la résolution de votre affaire, chaque étape est maîtrisée.</p>
+  <div class="processus-steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-title">Consultation initiale</div>
+      <p class="step-text">Un premier entretien confidentiel pour analyser votre situation, définir les enjeux et les options juridiques disponibles.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">02</div>
+      <div class="step-title">Stratégie juridique</div>
+      <p class="step-text">Élaboration d'une stratégie personnalisée, adaptée à vos objectifs et à la complexité de votre dossier.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">03</div>
+      <div class="step-title">Instruction du dossier</div>
+      <p class="step-text">Collecte des pièces, rédaction des actes, échanges contradictoires et préparation rigoureuse de votre défense.</p>
+    </div>
+    <div class="step reveal">
+      <div class="step-num">04</div>
+      <div class="step-title">Résolution & suivi</div>
+      <p class="step-text">Plaidoirie, négociation ou médiation. Nous assurons un suivi complet jusqu'au résultat final de votre affaire.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section id="temoignages">
+  <div class="section-eyebrow">Ce que disent nos clients</div>
+  <h2 class="section-title">Ils nous font <span class="gold">confiance</span></h2>
+  <p class="section-sub">La satisfaction de nos clients est notre plus belle récompense.</p>
+  <div class="temoignages-grid">
+    <div class="temoignage reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="temoignage-text">Maître Rousseau a géré notre restructuration avec une maîtrise exceptionnelle. Réactifs, précis, et toujours disponibles pour répondre à nos questions.</p>
+      <div class="temoignage-author">Alexandre M.</div>
+      <div class="temoignage-role">Directeur Général, PME industrielle</div>
+    </div>
+    <div class="temoignage reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="temoignage-text">Dans une procédure de divorce difficile, Maître Lemaître a su allier fermeté et humanité. Je me suis senti accompagné et compris à chaque étape.</p>
+      <div class="temoignage-author">Sandrine T.</div>
+      <div class="temoignage-role">Particulière</div>
+    </div>
+    <div class="temoignage reveal">
+      <div class="quote-mark">"</div>
+      <div class="stars">★★★★★</div>
+      <p class="temoignage-text">Une défense pénale impeccable. Maître Benali a su démontrer notre bonne foi avec des arguments solides. Verdict favorable à l'unanimité.</p>
+      <div class="temoignage-author">Marc & Lucie F.</div>
+      <div class="temoignage-role">Chefs d'entreprise</div>
+    </div>
+  </div>
+</section>
+
+<!-- BANDEAU -->
+<div id="bandeau">
+  <div class="bandeau-inner reveal">
+    <div class="bandeau-eyebrow">Notre cabinet · Paris 2ème</div>
+    <h2 class="bandeau-title">Chaque affaire mérite une <span class="gold">défense d'exception</span></h2>
+    <div class="bandeau-sep"></div>
+    <p class="bandeau-addr">12 Rue de la Paix · 75002 Paris · +33 (0)1 42 65 88 00</p>
+  </div>
+</div>
+
+<!-- RDV -->
+<section id="rdv">
+  <div class="rdv-layout">
+    <div class="reveal">
+      <div class="section-eyebrow">Contactez-nous</div>
+      <h2 class="section-title">Prenez <span class="gold">rendez-vous</span></h2>
+      <p class="section-sub">La première consultation est l'occasion de poser toutes vos questions. Nous vous répondons sous 24h.</p>
+      <br>
+      <div class="rdv-contact-item">
+        <div class="rdv-contact-icon">📍</div>
+        <div><div class="rdv-contact-label">Adresse</div><div class="rdv-contact-value">12 Rue de la Paix, 75002 Paris</div></div>
+      </div>
+      <div class="rdv-contact-item">
+        <div class="rdv-contact-icon">📞</div>
+        <div><div class="rdv-contact-label">Téléphone</div><div class="rdv-contact-value">+33 (0)1 42 65 88 00</div></div>
+      </div>
+      <div class="rdv-contact-item">
+        <div class="rdv-contact-icon">✉️</div>
+        <div><div class="rdv-contact-label">Email</div><div class="rdv-contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="88ebe7e6fce9ebfcc8fae7fdfbfbede9fda5e9fbfbe7ebe1edfba6eefa">[email&#160;protected]</a></div></div>
+      </div>
+      <div class="rdv-map"></div>
+      <div class="rdv-horaires">
+        <h4>Horaires d'ouverture</h4>
+        <div class="horaire-row"><span>Lundi — Jeudi</span><span>09h00 — 19h00</span></div>
+        <div class="horaire-row"><span>Vendredi</span><span>09h00 — 17h30</span></div>
+        <div class="horaire-row"><span>Samedi</span><span>Sur rendez-vous</span></div>
+        <div class="horaire-row" style="border:none"><span>Dimanche</span><span style="color:rgba(240,236,228,.25)">Fermé</span></div>
+      </div>
+    </div>
+    <div class="rdv-form reveal">
+      <h3 class="form-title">Demande de consultation</h3>
+      <p class="form-sub">Remplissez ce formulaire — nous vous confirmons votre créneau par email.</p>
+      <div id="formContent">
+        <div class="form-grid">
+          <div class="form-group"><label>Prénom *</label><input type="text" id="f-prenom" placeholder="Jean"></div>
+          <div class="form-group"><label>Nom *</label><input type="text" placeholder="Dupont"></div>
+          <div class="form-group"><label>Email *</label><input type="email" id="f-email" placeholder="jean.dupont@email.fr"></div>
+          <div class="form-group"><label>Téléphone</label><input type="tel" placeholder="+33 6 XX XX XX XX"></div>
+          <div class="form-group full"><label>Domaine juridique *</label>
+            <select id="f-domaine">
+              <option value="">— Sélectionnez un domaine —</option>
+              <option>Droit des Affaires</option><option>Droit de la Famille</option>
+              <option>Droit Immobilier</option><option>Droit Social & Travail</option>
+              <option>Droit Pénal</option><option>Droit International</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group full"><label>Date souhaitée *</label><input type="date" id="dateInput"></div>
+          <div class="form-group full">
+            <span class="slots-label">Créneaux disponibles *</span>
+            <div class="slots-grid">
+              <div class="slot" onclick="selectSlot(this)">09:00</div>
+              <div class="slot" onclick="selectSlot(this)">09:30</div>
+              <div class="slot disabled">10:00</div>
+              <div class="slot" onclick="selectSlot(this)">10:30</div>
+              <div class="slot disabled">11:00</div>
+              <div class="slot" onclick="selectSlot(this)">11:30</div>
+              <div class="slot" onclick="selectSlot(this)">14:00</div>
+              <div class="slot" onclick="selectSlot(this)">14:30</div>
+              <div class="slot disabled">15:00</div>
+              <div class="slot" onclick="selectSlot(this)">15:30</div>
+              <div class="slot" onclick="selectSlot(this)">16:00</div>
+              <div class="slot" onclick="selectSlot(this)">17:00</div>
+            </div>
+          </div>
+          <div class="form-group full"><label>Description de votre situation</label><textarea placeholder="Décrivez brièvement votre situation juridique (confidentiel)…"></textarea></div>
+        </div>
+        <button class="form-submit" onclick="submitForm()">Confirmer la demande de RDV →</button>
+        <p class="form-disclaimer">Vos données sont traitées de manière strictement confidentielle conformément au RGPD et au secret professionnel de l'avocat.</p>
+      </div>
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">✅</div>
+        <h3>Demande envoyée !</h3>
+        <p>Votre demande a bien été reçue.<br>Notre équipe vous contactera dans les <strong style="color:var(--or)">24 heures</strong> pour confirmer votre créneau.</p>
+        <br><p style="color:rgba(240,236,228,.3);font-size:.75rem">Un email de confirmation vous a été envoyé.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">Rousseau <span>& Associés</span></a>
+      <p>Cabinet d'avocats parisien fondé en 1998. Défendre vos droits avec excellence, rigueur et humanité.</p>
+    </div>
+    <div class="footer-col"><h5>Domaines</h5><ul><li><a href="#">Droit des Affaires</a></li><li><a href="#">Droit de la Famille</a></li><li><a href="#">Droit Immobilier</a></li><li><a href="#">Droit Social</a></li><li><a href="#">Droit Pénal</a></li></ul></div>
+    <div class="footer-col"><h5>Cabinet</h5><ul><li><a href="#">L'équipe</a></li><li><a href="#">Notre approche</a></li><li><a href="#">Publications</a></li><li><a href="#">Actualités juridiques</a></li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">Prendre rendez-vous</a></li><li><a href="#">12 Rue de la Paix, Paris</a></li><li><a href="#">+33 (0)1 42 65 88 00</a></li><li><a href="#">Urgences : 24h/24</a></li></ul></div>
+  </div>
+  <div class="footer-bar">
+    <p>© 2025 Rousseau & Associés — Tous droits réservés · Barreau de Paris</p>
+    <div class="footer-bar-links"><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">RGPD</a></div>
+  </div>
+</footer>
+
+<a href="#rdv" class="floating-rdv"><span class="floating-dot"></span>Prendre RDV</a>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Burger menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu(force) {
+    const isOpen = force !== undefined ? force : !burger.classList.contains('open');
+    burger.classList.toggle('open', isOpen);
+    mobileMenu.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  }
+
+  burger.addEventListener('click', () => toggleMenu());
+  document.getElementById('menuClose').addEventListener('click', () => toggleMenu(false));
+  mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
+
+  function selectSlot(el) {
+    document.querySelectorAll('.slot').forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  function submitForm() {
+    const prenom = document.getElementById('f-prenom').value.trim();
+    const email = document.getElementById('f-email').value.trim();
+    const domaine = document.getElementById('f-domaine').value;
+    const slot = document.querySelector('.slot.selected');
+    ['f-prenom','f-email','f-domaine'].forEach(id => document.getElementById(id).style.borderColor='');
+    if (!prenom) { document.getElementById('f-prenom').style.borderColor='#c0392b'; return; }
+    if (!email||!email.includes('@')) { document.getElementById('f-email').style.borderColor='#c0392b'; return; }
+    if (!domaine) { document.getElementById('f-domaine').style.borderColor='#c0392b'; return; }
+    if (!slot) { alert('Veuillez sélectionner un créneau horaire.'); return; }
+    document.getElementById('formContent').style.display='none';
+    document.getElementById('successMsg').style.display='block';
+  }
+  const di = document.getElementById('dateInput');
+  di.min = di.value = new Date().toISOString().split('T')[0];
+
+  function revealAll() {
+    document.querySelectorAll('.reveal').forEach((el, i) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight + 60) {
+        setTimeout(() => el.classList.add('visible'), i * 70);
+      }
+    });
+  }
+  window.addEventListener('scroll', revealAll, { passive: true });
+  window.addEventListener('load', revealAll);
+  setTimeout(revealAll, 200);
+</script>
+</body>
+</html>

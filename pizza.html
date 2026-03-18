@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pizzeria — Cotonou, Bénin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+  --orange:   #E84C00;
+  --orange-l: #FF6B1A;
+  --og:       rgba(232,76,0,0.35);
+  --os:       rgba(232,76,0,0.10);
+  --gor:      linear-gradient(135deg,#E84C00 0%,#FF8C42 100%);
+  --black:    #111111;
+  --dark:     #1A1A1A;
+  --card:     #FFFFFF;
+  --white:    #F5F5F0;
+  --gray:     #666666;
+  --lgray:    #999999;
+  --border:   rgba(232,76,0,0.25);
+  --nav-h:    70px;
+  --r:        12px;
+  --T:        0.3s cubic-bezier(0.4,0,0.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav-h);}
+body{background:var(--white);color:var(--black);font-family:'Outfit',sans-serif;overflow-x:hidden;line-height:1.6;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:#111;}
+::-webkit-scrollbar-thumb{background:var(--orange);border-radius:2px;}
+img{display:block;width:100%;object-fit:cover;}
+a{text-decoration:none;color:inherit;}
+.container{width:100%;max-width:1240px;margin:0 auto;padding:0 clamp(16px,5vw,60px);}
+section{padding:clamp(60px,8vw,100px) 0;position:relative;}
+.gt{background:var(--gor);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* SCROLL PROGRESS */
+#scroll-bar{position:fixed;top:0;left:0;height:3px;background:var(--gor);z-index:9999;width:0%;box-shadow:0 0 8px var(--orange);}
+
+/* SECTION HEADERS */
+.sh{text-align:center;margin-bottom:clamp(36px,5vw,64px);}
+.sb{display:inline-flex;align-items:center;gap:7px;padding:5px 16px;border-radius:100px;background:var(--os);border:1px solid var(--border);font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;font-family:'Outfit',sans-serif;}
+.st{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,48px);line-height:1.1;margin-bottom:12px;color:var(--black);}
+.st.light{color:#fff;}
+.ss{font-size:clamp(14px,1.8vw,16px);color:var(--gray);max-width:480px;margin:0 auto;}
+.sl{width:60px;height:3px;border-radius:2px;background:var(--gor);margin:16px auto 0;}
+
+/* BUTTONS */
+.btn-p{background:var(--gor);padding:14px 32px;border-radius:4px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:#fff;border:none;cursor:pointer;box-shadow:0 6px 22px var(--og);transition:transform var(--T),box-shadow var(--T);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;letter-spacing:1px;text-transform:uppercase;}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 32px var(--og);}
+.btn-o{background:transparent;padding:13px 30px;border-radius:4px;border:2px solid rgba(255,255,255,0.7);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:#fff;cursor:pointer;transition:all var(--T);display:inline-flex;align-items:center;gap:8px;white-space:nowrap;letter-spacing:1px;text-transform:uppercase;}
+.btn-o:hover{background:rgba(255,255,255,0.12);border-color:#fff;}
+.btn-dark{background:var(--black);padding:13px 30px;border-radius:4px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:#fff;border:none;cursor:pointer;transition:all var(--T);display:inline-flex;align-items:center;gap:8px;letter-spacing:1px;text-transform:uppercase;}
+.btn-dark:hover{background:#222;transform:translateY(-1px);}
+
+/* FADE UP */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ═══ NAVBAR ═══ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:var(--nav-h);background:rgba(17,17,17,0.97);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.06);padding:0 clamp(16px,5vw,60px);display:flex;align-items:center;justify-content:space-between;gap:16px;transition:all 0.35s;}
+nav.scrolled{height:58px;box-shadow:0 4px 30px rgba(0,0,0,0.5);}
+nav::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);opacity:0.4;}
+.nlogo{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+.nlogo-badge{width:42px;height:42px;border-radius:50%;background:var(--gor);display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 0 16px var(--og);}
+.nlogo-text{font-family:'Playfair Display',serif;font-size:20px;color:#fff;letter-spacing:1px;}
+.nlogo-text span{color:var(--orange);}
+.nlinks{display:flex;align-items:center;gap:4px;}
+.nl{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,0.65);padding:7px 14px;border-radius:4px;transition:all var(--T);letter-spacing:0.5px;}
+.nl:hover,.nl.active{color:#fff;}
+.nl.active{background:rgba(255,255,255,0.06);}
+.ncta{background:var(--gor);padding:9px 20px;border-radius:4px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;color:#fff;border:none;cursor:pointer;box-shadow:0 3px 14px var(--og);transition:all var(--T);letter-spacing:0.5px;white-space:nowrap;}
+.ncta:hover{transform:scale(1.04);}
+.ham{display:none;width:38px;height:38px;border-radius:6px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:15px;cursor:pointer;align-items:center;justify-content:center;transition:all var(--T);}
+.mmenu{position:fixed;inset:0;z-index:999;background:rgba(10,10,10,0.98);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:all 0.3s;pointer-events:none;}
+.mmenu.open{opacity:1;visibility:visible;pointer-events:auto;}
+.mml{font-family:'Playfair Display',serif;font-size:clamp(22px,5vw,32px);color:rgba(255,255,255,0.7);padding:12px 32px;border-radius:8px;transition:all 0.25s;display:flex;align-items:center;gap:14px;}
+.mml:hover{color:#fff;background:rgba(232,76,0,0.1);}
+.mml i{color:var(--orange);font-size:16px;}
+@media(max-width:860px){.nlinks{display:none;}.ham{display:flex;}.ncta{display:none;}}
+
+/* ═══ HERO ═══ */
+#hero{min-height:100vh;display:flex;align-items:center;padding-top:var(--nav-h);position:relative;overflow:hidden;background:#0d0d0d;}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=1600&q=85');background-size:cover;background-position:center;opacity:0.55;transform:scale(1.04);animation:hero-zoom 18s ease-in-out infinite alternate;}
+@keyframes hero-zoom{0%{transform:scale(1.04);}100%{transform:scale(1.12);}}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(120deg,rgba(5,5,5,0.93) 0%,rgba(10,10,10,0.72) 45%,rgba(20,8,0,0.80) 100%);}
+.hero-content{position:relative;z-index:2;max-width:720px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;border-radius:100px;background:rgba(232,76,0,0.12);border:1px solid rgba(232,76,0,0.35);font-size:12px;font-weight:600;color:var(--orange);letter-spacing:1.5px;margin-bottom:24px;text-transform:uppercase;}
+.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--orange);box-shadow:0 0 8px var(--orange);animation:ping 1.8s ease-out infinite;}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(232,76,0,0.5);}70%{box-shadow:0 0 0 8px rgba(232,76,0,0);}100%{box-shadow:0 0 0 0 rgba(232,76,0,0);}}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);line-height:1.0;color:#fff;margin-bottom:20px;letter-spacing:-1px;}
+.hero-title span{color:var(--orange);display:block;}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:rgba(255,255,255,0.65);max-width:520px;line-height:1.8;margin-bottom:36px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+.hero-stats{display:flex;gap:0;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;overflow:hidden;backdrop-filter:blur(10px);max-width:480px;}
+.hstat{flex:1;text-align:center;padding:18px 12px;border-right:1px solid rgba(255,255,255,0.08);}
+.hstat:last-child{border-right:none;}
+.hstat-n{display:block;font-family:'Playfair Display',serif;font-size:clamp(22px,3vw,32px);color:var(--orange);font-weight:700;}
+.hstat-l{display:block;font-size:11px;color:rgba(255,255,255,0.5);margin-top:3px;text-transform:uppercase;letter-spacing:1px;}
+/* Floating ingredients */
+.float-ing{position:absolute;font-size:clamp(24px,4vw,48px);pointer-events:none;z-index:1;opacity:0.7;}
+.fi-1{top:15%;right:8%;animation:float1 4s ease-in-out infinite;}
+.fi-2{top:25%;right:25%;animation:float2 6s ease-in-out infinite 1s;}
+.fi-3{bottom:25%;right:12%;animation:float1 5s ease-in-out infinite 2s;}
+.fi-4{bottom:15%;right:30%;animation:float2 3.5s ease-in-out infinite 0.5s;}
+@keyframes float1{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-16px) rotate(8deg);}}
+@keyframes float2{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-12px) rotate(-6deg);}}
+@media(max-width:600px){.hero-btns{flex-direction:column;}.btn-p,.btn-o{justify-content:center;}.float-ing{display:none;}.hero-stats{flex-wrap:wrap;}.hstat{flex:0 0 50%;}}
+
+/* QUICK ORDER BAR */
+#qbar{position:fixed;top:var(--nav-h);left:0;right:0;z-index:900;background:var(--orange);padding:10px clamp(16px,5vw,60px);display:flex;align-items:center;gap:12px;transform:translateY(-100%);opacity:0;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);box-shadow:0 4px 20px rgba(232,76,0,0.4);}
+#qbar.visible{transform:translateY(0);opacity:1;}
+.qbar-logo{font-family:'Playfair Display',serif;font-size:16px;color:#fff;font-weight:700;white-space:nowrap;flex-shrink:0;}
+.qbar-input{flex:1;background:rgba(255,255,255,0.18);border:1px solid rgba(255,255,255,0.3);border-radius:4px;padding:9px 14px;color:#fff;font-family:'Outfit',sans-serif;font-size:13px;outline:none;transition:all var(--T);}
+.qbar-input::placeholder{color:rgba(255,255,255,0.65);}
+.qbar-input:focus{background:rgba(255,255,255,0.25);border-color:rgba(255,255,255,0.6);}
+.qbar-btn{background:#fff;color:var(--orange);padding:9px 20px;border-radius:4px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;letter-spacing:0.5px;transition:all var(--T);}
+.qbar-btn:hover{transform:scale(1.04);}
+@media(max-width:600px){#qbar{flex-wrap:wrap;}.qbar-logo{display:none;}}
+
+/* ═══ WHY US ═══ */
+#why{background:var(--white);}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.why-card{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:var(--r);padding:clamp(24px,3vw,36px);text-align:center;transition:all 0.35s;position:relative;overflow:hidden;}
+.why-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gor);}
+.why-card:hover{transform:translateY(-6px);border-color:var(--border);box-shadow:0 20px 50px rgba(232,76,0,0.1);}
+.why-icon{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,rgba(232,76,0,0.12),rgba(232,76,0,0.05));border:2px solid rgba(232,76,0,0.2);display:flex;align-items:center;justify-content:center;font-size:24px;margin:0 auto 18px;}
+.why-title{font-family:'Playfair Display',serif;font-size:clamp(17px,2vw,21px);color:var(--black);margin-bottom:10px;}
+.why-text{font-size:14px;color:var(--gray);line-height:1.75;}
+@media(max-width:860px){.why-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:520px){.why-grid{grid-template-columns:1fr;}}
+
+/* ═══ MENU ═══ */
+#menu{background:#fff;}
+.ftabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:clamp(28px,4vw,48px);}
+.ftab{font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;padding:9px 22px;border-radius:100px;border:1.5px solid rgba(0,0,0,0.12);color:var(--gray);background:transparent;cursor:pointer;transition:all var(--T);letter-spacing:0.5px;}
+.ftab:hover,.ftab.active{background:var(--gor);color:#fff;border-color:transparent;box-shadow:0 4px 16px var(--og);}
+.mgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.mcard{border-radius:var(--r);overflow:hidden;border:1px solid rgba(0,0,0,0.07);background:#fff;transition:all 0.35s;display:flex;flex-direction:column;}
+.mcard:hover{transform:translateY(-6px);border-color:var(--border);box-shadow:0 20px 50px rgba(232,76,0,0.12);}
+.mcard.hidden{display:none;}
+.mcard-img{aspect-ratio:4/3;overflow:hidden;position:relative;background:#f0e8e0;}
+.mcard-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.mcard:hover .mcard-img img{transform:scale(1.07);}
+.mcard-badge{position:absolute;top:10px;left:10px;background:var(--gor);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:100px;letter-spacing:1px;text-transform:uppercase;}
+.mcard-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+.mcard-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--black);margin-bottom:6px;}
+.mcard-desc{font-size:12px;color:var(--lgray);line-height:1.6;margin-bottom:12px;flex:1;}
+.mcard-foot{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+.mcard-price{font-family:'Outfit',sans-serif;font-size:16px;font-weight:700;color:var(--orange);}
+.mcard-btn{background:var(--gor);color:#fff;border:none;padding:8px 16px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;transition:all var(--T);letter-spacing:0.5px;}
+.mcard-btn:hover{transform:scale(1.06);}
+/* Simple list cards for drinks/desserts */
+.list-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;max-width:700px;margin:0 auto;}
+.lcard{background:#fff;border:1px solid rgba(0,0,0,0.07);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;justify-content:space-between;transition:all var(--T);}
+.lcard:hover{border-color:var(--border);transform:translateX(4px);}
+.lcard-name{font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;color:var(--black);}
+.lcard-price{font-size:15px;font-weight:700;color:var(--orange);}
+@media(max-width:1100px){.mgrid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:820px){.mgrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.mgrid{grid-template-columns:1fr;}.list-grid{grid-template-columns:1fr;}}
+
+/* ═══ ORDER FORM ═══ */
+#order{background:var(--black);}
+#order .st{color:#fff;}
+.cgrid{display:grid;grid-template-columns:1fr 1.3fr;gap:clamp(28px,5vw,64px);align-items:start;}
+.cinfo{color:rgba(255,255,255,0.8);}
+.cinfo h3{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,28px);color:#fff;margin-bottom:24px;}
+.citem{display:flex;align-items:flex-start;gap:14px;margin-bottom:22px;}
+.cico{width:42px;height:42px;border-radius:8px;background:rgba(232,76,0,0.12);border:1px solid rgba(232,76,0,0.3);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:14px;flex-shrink:0;}
+.ctxt-label{font-weight:700;color:#fff;display:block;margin-bottom:3px;font-size:14px;}
+.ctxt-val{font-size:14px;color:rgba(255,255,255,0.55);line-height:1.6;}
+.fcard{background:#fff;border-radius:var(--r);padding:clamp(24px,3.5vw,40px);position:relative;}
+.fcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gor);border-radius:var(--r) var(--r) 0 0;}
+.fg{margin-bottom:14px;}
+.fl{font-size:12px;font-weight:600;color:var(--black);margin-bottom:6px;display:block;letter-spacing:0.5px;text-transform:uppercase;}
+.fi,.fsl,.fta{width:100%;background:var(--white);border:1.5px solid rgba(0,0,0,0.1);border-radius:6px;padding:12px 14px;color:var(--black);font-family:'Outfit',sans-serif;font-size:14px;outline:none;transition:all var(--T);}
+.fi:focus,.fsl:focus,.fta:focus{border-color:var(--orange);background:#fff;box-shadow:0 0 0 3px rgba(232,76,0,0.08);}
+.fta{min-height:90px;resize:vertical;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+/* Size radio */
+.sizes{display:flex;gap:8px;}
+.size-opt{flex:1;}
+.size-opt input{display:none;}
+.size-opt label{display:flex;align-items:center;justify-content:center;padding:11px;border-radius:6px;border:1.5px solid rgba(0,0,0,0.12);font-size:14px;font-weight:700;color:var(--gray);cursor:pointer;transition:all var(--T);}
+.size-opt input:checked + label{background:var(--gor);color:#fff;border-color:transparent;box-shadow:0 3px 12px var(--og);}
+.submit-btn{width:100%;background:var(--gor);border:none;padding:16px;border-radius:6px;font-family:'Outfit',sans-serif;font-size:15px;font-weight:700;color:#fff;cursor:pointer;box-shadow:0 6px 22px var(--og);transition:all var(--T);display:flex;align-items:center;justify-content:center;gap:10px;letter-spacing:0.5px;margin-top:4px;}
+.submit-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px var(--og);}
+.form-note{text-align:center;font-size:12px;color:var(--lgray);margin-top:12px;line-height:1.6;}
+#smsg{display:none;background:rgba(0,200,100,0.08);border:1px solid rgba(0,200,100,0.3);border-radius:6px;padding:14px;margin-top:12px;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#00c864;}
+@media(max-width:820px){.cgrid{grid-template-columns:1fr;}.frow{grid-template-columns:1fr;}}
+
+/* ═══ HOW IT WORKS ═══ */
+#how{background:var(--white);}
+.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;max-width:860px;margin:0 auto;}
+.steps-grid::before{content:'';position:absolute;top:clamp(32px,5vw,50px);left:16%;right:16%;height:2px;background:linear-gradient(90deg,var(--orange),var(--orange-l));opacity:0.25;z-index:0;}
+.step{text-align:center;padding:clamp(16px,3vw,32px) clamp(12px,2vw,24px);position:relative;z-index:1;}
+.step-num{width:clamp(56px,7vw,72px);height:clamp(56px,7vw,72px);border-radius:50%;background:#fff;border:2px solid rgba(232,76,0,0.3);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;font-size:clamp(20px,3vw,28px);transition:all 0.35s;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
+.step:hover .step-num{background:var(--gor);border-color:transparent;box-shadow:0 8px 28px var(--og);transform:scale(1.1);}
+.step-title{font-family:'Playfair Display',serif;font-size:clamp(16px,2vw,20px);color:var(--black);margin-bottom:10px;}
+.step-desc{font-size:13px;color:var(--gray);line-height:1.75;}
+@media(max-width:600px){.steps-grid{grid-template-columns:1fr;}.steps-grid::before{display:none;}}
+
+/* ═══ TESTIMONIALS ═══ */
+#testi{background:#fff;}
+.tcarousel{overflow:hidden;position:relative;}
+.ttrack{display:flex;gap:24px;transition:transform 0.55s cubic-bezier(0.4,0,0.2,1);}
+.tcard{flex:0 0 calc(33.333% - 16px);background:var(--white);border:1px solid rgba(0,0,0,0.07);border-radius:var(--r);padding:clamp(20px,3vw,32px);position:relative;overflow:hidden;}
+.tcard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gor);}
+.tcard::after{content:'\201C';font-size:90px;font-family:Georgia,serif;color:var(--orange);opacity:0.07;position:absolute;top:-10px;left:14px;line-height:1;}
+.tstars{display:flex;gap:3px;margin-bottom:12px;}
+.tstars i{color:#FFB800;font-size:12px;}
+.ttext{font-size:14px;color:var(--gray);line-height:1.8;margin-bottom:20px;font-style:italic;position:relative;z-index:1;}
+.tauthor{display:flex;align-items:center;gap:12px;}
+.tavatar{width:44px;height:44px;border-radius:50%;background:var(--gor);display:flex;align-items:center;justify-content:center;font-family:'Outfit',sans-serif;font-size:14px;font-weight:800;color:#fff;flex-shrink:0;}
+.tname{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:var(--black);}
+.trole{font-size:12px;color:var(--lgray);}
+.tnav{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:32px;}
+.tdot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,0.15);cursor:pointer;transition:all 0.3s;}
+.tdot.active{background:var(--orange);width:24px;border-radius:4px;}
+.tarr{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--border);background:transparent;color:var(--orange);font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--T);}
+.tarr:hover{background:var(--os);transform:scale(1.08);}
+@media(max-width:860px){.tcard{flex:0 0 calc(50% - 12px);}}
+@media(max-width:540px){.tcard{flex:0 0 100%;}}
+
+/* ═══ CONTACT ═══ */
+#contact{background:var(--black);}
+#contact .st{color:#fff;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,60px);align-items:start;}
+.contact-info h3{font-family:'Playfair Display',serif;font-size:clamp(18px,2.3vw,26px);color:#fff;margin-bottom:20px;}
+.hours-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:var(--r);padding:24px;margin-top:24px;}
+.hours-title{font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:14px;text-transform:uppercase;letter-spacing:1px;}
+.hour-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.07);font-size:14px;}
+.hour-row:last-child{border-bottom:none;}
+.hour-day{color:rgba(255,255,255,0.55);}
+.hour-time{color:#fff;font-weight:600;}
+.status-badge{display:inline-flex;align-items:center;gap:7px;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;margin-top:16px;letter-spacing:0.5px;}
+.status-badge.open{background:rgba(0,200,100,0.1);border:1px solid rgba(0,200,100,0.3);color:#00c864;}
+.status-badge.closed{background:rgba(255,50,50,0.1);border:1px solid rgba(255,50,50,0.3);color:#ff5050;}
+.status-dot{width:7px;height:7px;border-radius:50%;background:currentColor;animation:ping 2s ease-out infinite;}
+.map-placeholder{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:var(--r);height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:rgba(255,255,255,0.35);margin-top:24px;}
+.map-placeholder i{font-size:32px;color:var(--orange);opacity:0.5;}
+.map-placeholder p{font-size:13px;text-align:center;}
+.socials{display:flex;gap:10px;margin-top:20px;}
+.soc-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.15);background:transparent;color:rgba(255,255,255,0.5);font-size:15px;display:flex;align-items:center;justify-content:center;transition:all var(--T);cursor:pointer;}
+.soc-btn:hover{border-color:var(--orange);color:var(--orange);transform:scale(1.1);}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;}}
+
+/* ═══ FAQ ═══ */
+#faq{background:var(--white);}
+.faq-list{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:var(--r);overflow:hidden;transition:border-color 0.3s;}
+.faq-item.open{border-color:var(--border);}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:clamp(14px,2vw,20px) clamp(16px,2.5vw,24px);cursor:pointer;font-family:'Outfit',sans-serif;font-size:15px;font-weight:600;color:var(--black);}
+.faq-q:hover{color:var(--orange);}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(232,76,0,0.3);display:flex;align-items:center;justify-content:center;color:var(--orange);font-size:10px;flex-shrink:0;transition:all 0.35s;}
+.faq-item.open .faq-icon{background:var(--orange);color:#fff;border-color:var(--orange);transform:rotate(45deg);}
+.faq-body{max-height:0;overflow:hidden;transition:max-height 0.42s cubic-bezier(0.4,0,0.2,1);}
+.faq-body p{padding:0 clamp(16px,2.5vw,24px) clamp(14px,2vw,20px);font-size:14px;color:var(--gray);line-height:1.85;}
+
+/* ═══ FOOTER ═══ */
+footer{background:#0A0A0A;padding:clamp(40px,6vw,70px) 0 clamp(16px,2.5vw,24px);border-top:1px solid rgba(255,255,255,0.05);position:relative;}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gor);}
+.fgrid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(20px,4vw,40px);margin-bottom:clamp(24px,4vw,40px);}
+.fbrand{font-family:'Playfair Display',serif;font-size:22px;color:#fff;margin-bottom:8px;}
+.fbrand span{color:var(--orange);}
+.ftagline{font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:16px;font-style:italic;}
+.flinks-title{font-family:'Outfit',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:14px;font-weight:700;}
+.flinks{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.flinks a{font-size:14px;color:rgba(255,255,255,0.45);transition:color var(--T);display:flex;align-items:center;gap:8px;}
+.flinks a i{font-size:10px;color:var(--orange);width:12px;text-align:center;}
+.flinks a:hover{color:rgba(255,255,255,0.9);}
+.fcopy{border-top:1px solid rgba(255,255,255,0.06);padding-top:18px;text-align:center;font-size:12px;color:rgba(255,255,255,0.2);letter-spacing:0.5px;}
+@media(max-width:760px){.fgrid{grid-template-columns:1fr 1fr;}}
+@media(max-width:460px){.fgrid{grid-template-columns:1fr;text-align:center;}.flinks{align-items:center;}}
+
+/* STORY */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;min-height:500px;}
+.story-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4px;}
+.sphoto{overflow:hidden;}
+.sphoto img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
+.sphoto:hover img{transform:scale(1.07);}
+.story-text{display:flex;flex-direction:column;justify-content:center;padding:clamp(32px,6vw,80px);background:#111;}
+.story-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3.5vw,46px);color:#fff;line-height:1.1;margin-bottom:18px;text-transform:uppercase;letter-spacing:-0.5px;}
+.story-desc{font-size:clamp(14px,1.6vw,16px);color:rgba(255,255,255,0.5);line-height:1.85;margin-bottom:28px;max-width:420px;}
+@media(max-width:760px){.story-grid{grid-template-columns:1fr;}.story-photos{height:300px;}}
+
+/* WHATSAPP FLOAT */
+#wa-float{position:fixed;bottom:28px;right:28px;z-index:9990;}
+.wa-btn{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c5e);box-shadow:0 6px 24px rgba(37,211,102,0.45);display:flex;align-items:center;justify-content:center;color:#fff;font-size:26px;text-decoration:none;transition:all 0.3s;}
+.wa-btn:hover{transform:scale(1.12);}
+@media(max-width:480px){#wa-float{bottom:16px;right:16px;}}
+</style>
+</head>
+<body>
+
+<div id="scroll-bar"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nlogo">
+    <div class="nlogo-badge">🍕</div>
+    <span class="nlogo-text">La Bella<span>.</span></span>
+  </a>
+  <div class="nlinks">
+    <a href="#menu" class="nl">Notre Menu</a>
+    <a href="#order" class="nl">Commander</a>
+    <a href="#how" class="nl">Livraison</a>
+    <a href="#contact" class="nl">Contact</a>
+  </div>
+  <a href="#order" class="ncta">Commander 🛵</a>
+  <button class="ham" id="ham" aria-label="Menu"><i class="fas fa-bars"></i></button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <a href="#menu"    class="mml" onclick="closeMM()"><i class="fas fa-pizza-slice"></i>Notre Menu</a>
+  <a href="#order"   class="mml" onclick="closeMM()"><i class="fas fa-shopping-cart"></i>Commander</a>
+  <a href="#how"     class="mml" onclick="closeMM()"><i class="fas fa-motorcycle"></i>Livraison</a>
+  <a href="#contact" class="mml" onclick="closeMM()"><i class="fas fa-phone"></i>Contact</a>
+</div>
+
+<!-- QUICK ORDER BAR -->
+<div id="qbar">
+  <span class="qbar-logo">🍕 La Bella Pizzeria</span>
+  <input class="qbar-input" type="text" placeholder="Votre adresse de livraison à Cotonou...">
+  <button class="qbar-btn" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">Commander en ligne 🛵</button>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <span class="float-ing fi-1"></span>
+  <span class="float-ing fi-2"></span>
+  <span class="float-ing fi-3"></span>
+  <span class="float-ing fi-4"></span>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge"><span class="hero-badge-dot"></span>🛵 Livraison en 30 min — Cotonou</div>
+      <h1 class="hero-title">La Meilleure Pizza<span>Artisanale</span>de Cotonou</h1>
+      <p class="hero-sub">Pizzas fraîches, ingrédients de qualité, livrées chaudes directement chez vous dans tout Cotonou.</p>
+      <div class="hero-btns">
+        <a href="#order" class="btn-p"><i class="fas fa-rocket"></i> Commander Maintenant</a>
+        <a href="#menu" class="btn-o"><i class="fas fa-book-open"></i> Voir le Menu</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-n">15+</span><span class="hstat-l">Pizzas au menu</span></div>
+        <div class="hstat"><span class="hstat-n">30min</span><span class="hstat-l">Livraison moy.</span></div>
+        <div class="hstat"><span class="hstat-n">⭐ 4.9</span><span class="hstat-l">Avis clients</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb">🍕 Pourquoi nous</div>
+      <h2 class="st">Pourquoi nous<br><span class="gt">choisir ?</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card fade-up">
+        <div class="why-icon">🍕</div>
+        <h3 class="why-title">Pâte Fraîche Maison</h3>
+        <p class="why-text">Préparée chaque matin avec des ingrédients soigneusement sélectionnés pour une texture parfaite.</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:.1s">
+        <div class="why-icon">🛵</div>
+        <h3 class="why-title">Livraison en 30 Min</h3>
+        <p class="why-text">Rapide, chaude et directement chez vous partout à Cotonou. On ne vous fait pas attendre.</p>
+      </div>
+      <div class="why-card fade-up" style="transition-delay:.2s">
+        <div class="why-icon">⭐</div>
+        <h3 class="why-title">100% Satisfaction</h3>
+        <p class="why-text">Des centaines de clients satisfaits chaque semaine nous font confiance. Votre bonheur est notre priorité.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb">🍕 Notre menu</div>
+      <h2 class="st">Notre Menu<br><span class="gt">des pizzas pour tous les goûts</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="ftabs fade-up">
+      <button class="ftab active" data-filter="pizza">🍕 Pizzas Signature</button>
+      <button class="ftab" data-filter="vege">🥗 Végétarien</button>
+      <button class="ftab" data-filter="boisson">🥤 Boissons</button>
+      <button class="ftab" data-filter="dessert">🍰 Desserts</button>
+    </div>
+    <!-- Pizza cards -->
+    <div class="mgrid" id="mgrid">
+      <!-- PIZZAS SIGNATURE -->
+      <div class="mcard fade-up" data-cat="pizza">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=500&q=85" alt="Margherita" loading="lazy"><span class="mcard-badge">Signature</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">Margherita</h4><p class="mcard-desc">Sauce tomate, mozzarella fraîche, basilic frais du jardin</p><div class="mcard-foot"><span class="mcard-price">3 000 FCFA</span><button class="mcard-btn" onclick="selectPizza('Margherita')">Commander</button></div></div>
+      </div>
+      <div class="mcard fade-up" data-cat="pizza" style="transition-delay:.06s">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=500&q=85" alt="La Toscane" loading="lazy"><span class="mcard-badge">Populaire</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">La Toscane</h4><p class="mcard-desc">Jambon, champignons, olives noires, mozzarella fondante</p><div class="mcard-foot"><span class="mcard-price">4 000 FCFA</span><button class="mcard-btn" onclick="selectPizza('La Toscane')">Commander</button></div></div>
+      </div>
+      <div class="mcard fade-up" data-cat="pizza" style="transition-delay:.12s">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?w=500&q=85" alt="La Épicée" loading="lazy"><span class="mcard-badge">Épicée 🌶️</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">La Épicée</h4><p class="mcard-desc">Sauce piquante maison, pepperoni, piments frais, mozzarella</p><div class="mcard-foot"><span class="mcard-price">3 800 FCFA</span><button class="mcard-btn" onclick="selectPizza('La Épicée')">Commander</button></div></div>
+      </div>
+      <div class="mcard fade-up" data-cat="pizza" style="transition-delay:.18s">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500&q=85" alt="La Fumée" loading="lazy"><span class="mcard-badge">Best-seller ⭐</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">La Fumée</h4><p class="mcard-desc">Sauce BBQ, poulet fumé, oignons caramélisés, cheddar fondu</p><div class="mcard-foot"><span class="mcard-price">4 200 FCFA</span><button class="mcard-btn" onclick="selectPizza('La Fumée')">Commander</button></div></div>
+      </div>
+      <div class="mcard fade-up" data-cat="pizza" style="transition-delay:.24s">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&q=85" alt="4 Fromages" loading="lazy"><span class="mcard-badge">Signature</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">4 Fromages</h4><p class="mcard-desc">Mozzarella, cheddar, parmesan et gorgonzola — un pur bonheur</p><div class="mcard-foot"><span class="mcard-price">4 500 FCFA</span><button class="mcard-btn" onclick="selectPizza('4 Fromages')">Commander</button></div></div>
+      </div>
+      <div class="mcard fade-up" data-cat="pizza" style="transition-delay:.30s">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?w=500&q=85" alt="La Royale" loading="lazy"><span class="mcard-badge">Signature</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">La Royale</h4><p class="mcard-desc">Viande hachée, poivrons colorés, champignons, mozzarella dorée</p><div class="mcard-foot"><span class="mcard-price">4 000 FCFA</span><button class="mcard-btn" onclick="selectPizza('La Royale')">Commander</button></div></div>
+      </div>
+      <!-- VEGE -->
+      <div class="mcard hidden fade-up" data-cat="vege">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1548369937-47519962c11a?w=500&q=85" alt="La Blanche" loading="lazy"><span class="mcard-badge">Végétarien 🌿</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">La Blanche</h4><p class="mcard-desc">Crème fraîche, mozzarella fondante, courgettes, tomates cerises</p><div class="mcard-foot"><span class="mcard-price">3 500 FCFA</span><button class="mcard-btn" onclick="selectPizza('La Blanche')">Commander</button></div></div>
+      </div>
+      <div class="mcard hidden fade-up" data-cat="vege" style="transition-delay:.1s">
+        <div class="mcard-img"><img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?w=500&q=85" alt="Végétarienne" loading="lazy"><span class="mcard-badge">Végétarien 🌿</span></div>
+        <div class="mcard-body"><h4 class="mcard-name">Végétarienne</h4><p class="mcard-desc">Légumes grillés de saison, mozzarella crémeuse, herbes fraîches</p><div class="mcard-foot"><span class="mcard-price">3 500 FCFA</span><button class="mcard-btn" onclick="selectPizza('Végétarienne')">Commander</button></div></div>
+      </div>
+    </div>
+    <!-- Boissons & Desserts list -->
+    <div class="list-grid" id="lgrid" style="display:none;margin-top:0;">
+      <!-- filled by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ORDER FORM -->
+<section id="order">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb" style="background:rgba(232,76,0,0.15);border-color:rgba(232,76,0,0.4);color:var(--orange-l);">🛵 Commander</div>
+      <h2 class="st light">Commandez en Ligne</h2>
+      <p class="ss" style="color:rgba(255,255,255,0.45);">Livraison rapide dans tout Cotonou</p>
+      <div class="sl"></div>
+    </div>
+    <div class="cgrid">
+      <div class="cinfo fade-up">
+        <h3>Votre commande,<br>livrée en 30 minutes</h3>
+        <div class="citem"><div class="cico"><i class="fas fa-clock"></i></div><div><span class="ctxt-label">Délai de livraison</span><span class="ctxt-val">30 minutes en moyenne dans tout Cotonou</span></div></div>
+        <div class="citem"><div class="cico"><i class="fas fa-map-marker-alt"></i></div><div><span class="ctxt-label">Zone de livraison</span><span class="ctxt-val">Centre-ville, Akpakpa, Cadjehoun, Fidjrossè, Abomey-Calavi</span></div></div>
+        <div class="citem"><div class="cico"><i class="fas fa-money-bill-wave"></i></div><div><span class="ctxt-label">Paiement accepté</span><span class="ctxt-val">Cash à la livraison · MTN Mobile Money · Moov Money</span></div></div>
+        <div class="citem"><div class="cico"><i class="fab fa-whatsapp"></i></div><div><span class="ctxt-label">Support WhatsApp</span><span class="ctxt-val">Disponible 7j/7 pour toutes vos questions</span></div></div>
+      </div>
+      <div class="fcard fade-up" style="transition-delay:.2s">
+        <form id="oform">
+          <div class="frow">
+            <div class="fg"><label class="fl">Prénom & Nom</label><input class="fi" type="text" id="fname" placeholder="Jean Dupont" required></div>
+            <div class="fg"><label class="fl">WhatsApp</label><input class="fi" type="tel" id="fphone" placeholder="+229 XX XX XX XX" required></div>
+          </div>
+          <div class="fg"><label class="fl">Adresse de livraison</label><input class="fi" type="text" id="faddr" placeholder="Ex: Rue des cocotiers, imm. 3..." required></div>
+          <div class="frow">
+            <div class="fg"><label class="fl">Quartier</label>
+              <select class="fsl" id="fquartier">
+                <option value="">Sélectionnez...</option>
+                <option>Centre-ville</option><option>Akpakpa</option>
+                <option>Cadjehoun</option><option>Fidjrossè</option>
+                <option>Abomey-Calavi</option><option>Autre</option>
+              </select>
+            </div>
+            <div class="fg"><label class="fl">Pizza choisie</label>
+              <select class="fsl" id="fpizza">
+                <option value="">Sélectionnez...</option>
+                <option>Margherita — 3 000 FCFA</option>
+                <option>La Toscane — 4 000 FCFA</option>
+                <option>La Épicée — 3 800 FCFA</option>
+                <option>La Fumée — 4 200 FCFA</option>
+                <option>4 Fromages — 4 500 FCFA</option>
+                <option>La Royale — 4 000 FCFA</option>
+                <option>La Blanche — 3 500 FCFA</option>
+                <option>Végétarienne — 3 500 FCFA</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label class="fl">Taille</label>
+            <div class="sizes">
+              <div class="size-opt"><input type="radio" name="size" id="sS" value="S"><label for="sS">S</label></div>
+              <div class="size-opt"><input type="radio" name="size" id="sM" value="M" checked><label for="sM">M</label></div>
+              <div class="size-opt"><input type="radio" name="size" id="sL" value="L"><label for="sL">L</label></div>
+              <div class="size-opt"><input type="radio" name="size" id="sXL" value="XL"><label for="sXL">XL</label></div>
+            </div>
+          </div>
+          <div class="fg"><label class="fl">Instructions spéciales</label><textarea class="fta" id="fnote" placeholder="Allergies, instructions particulières..."></textarea></div>
+          <button type="submit" class="submit-btn"><i class="fab fa-whatsapp" style="font-size:18px"></i> Envoyer ma commande sur WhatsApp</button>
+          <p class="form-note">Votre commande sera transmise via WhatsApp. Délai moyen : 30 minutes.</p>
+          <div id="smsg"><i class="fas fa-check-circle"></i> Commande envoyée ! Nous vous contactons sous peu. 🎉</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb">🛵 Livraison</div>
+      <h2 class="st">Comment ça<br><span class="gt">marche ?</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="steps-grid">
+      <div class="step fade-up">
+        <div class="step-num">🍕</div>
+        <h3 class="step-title">Choisissez votre pizza</h3>
+        <p class="step-desc">Parcourez notre menu et sélectionnez vos pizzas favorites parmi nos 8 recettes artisanales.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:.1s">
+        <div class="step-num">📍</div>
+        <h3 class="step-title">Indiquez votre adresse</h3>
+        <p class="step-desc">Entrez votre adresse de livraison à Cotonou. Nous livrons dans tous les quartiers.</p>
+      </div>
+      <div class="step fade-up" style="transition-delay:.2s">
+        <div class="step-num">🛵</div>
+        <h3 class="step-title">Recevez en 30 minutes</h3>
+        <p class="step-desc">Notre livreur arrive chaud et souriant à votre porte. Paiement à la livraison ou Mobile Money.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testi">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb">⭐ Avis clients</div>
+      <h2 class="st">Ce que disent<br><span class="gt">nos clients</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="tcarousel fade-up">
+      <div class="ttrack" id="ttrack">
+        <div class="tcard"><div class="tstars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="ttext">« La meilleure pizza que j'ai mangée à Cotonou. La Fumée est absolument divine. Livraison ultra rapide ! »</p><div class="tauthor"><div class="tavatar">KA</div><div><div class="tname">Kofi Adeola</div><div class="trole">Centre-ville, Cotonou</div></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="ttext">« La 4 Fromages est incroyable. Je commande chaque semaine maintenant pour toute la famille ! »</p><div class="tauthor"><div class="tavatar">MF</div><div><div class="tname">Marie-France A.</div><div class="trole">Akpakpa, Cotonou</div></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="ttext">« Parfait pour les soirées en famille. Le service est toujours au top, toujours dans les délais. »</p><div class="tauthor"><div class="tavatar">SD</div><div><div class="tname">Samuel Dossou</div><div class="trole">Cadjehoun, Cotonou</div></div></div></div>
+        <div class="tcard"><div class="tstars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="ttext">« J'ai commandé La Épicée pour un anniversaire — tout le monde a adoré. Je recommande à 100% ! »</p><div class="tauthor"><div class="tavatar">LN</div><div><div class="tname">Laure Nago</div><div class="trole">Fidjrossè, Cotonou</div></div></div></div>
+      </div>
+    </div>
+    <div class="tnav">
+      <button class="tarr" id="tprev"><i class="fas fa-chevron-left"></i></button>
+      <span class="tdot active" data-i="0"></span>
+      <span class="tdot" data-i="1"></span>
+      <span class="tdot" data-i="2"></span>
+      <button class="tarr" id="tnext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story" style="background:#111;padding:0;overflow:hidden;">
+  <div class="story-grid">
+    <div class="story-photos">
+      <div class="sphoto"><img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=600&q=85" alt="Four a pizza" loading="lazy"></div>
+      <div class="sphoto"><img src="https://images.unsplash.com/photo-1605478371310-a9f1e96b4ff4?w=600&q=85" alt="Pizzaiolo" loading="lazy"></div>
+      <div class="sphoto"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=85" alt="Restaurant" loading="lazy"></div>
+      <div class="sphoto"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=85" alt="Pizza" loading="lazy"></div>
+    </div>
+    <div class="story-text">
+      <div class="sb" style="background:rgba(232,76,0,0.12);border-color:rgba(232,76,0,0.3);color:#E84C00;margin-bottom:20px;">🍕 Notre histoire</div>
+      <h2 class="story-title">Une pizza artisanale que même les Béninois <span style="color:#E84C00;">adorent</span></h2>
+      <p class="story-desc">Née dune passion pour la cuisine italienne et les saveurs locales, notre pizzeria propose des recettes maison préparées avec des ingrédients frais chaque jour pour vous offrir le meilleur.</p>
+      <a href="#menu" class="btn-o" style="width:fit-content;margin-top:8px;"><i class="fas fa-book-open"></i> Voir le menu complet</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb" style="background:rgba(232,76,0,0.15);border-color:rgba(232,76,0,0.4);color:var(--orange-l);">📞 Contact</div>
+      <h2 class="st light">Nous Contacter</h2>
+      <div class="sl"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="fade-up">
+        <div class="citem"><div class="cico"><i class="fas fa-map-marker-alt"></i></div><div><span class="ctxt-label">Adresse</span><span class="ctxt-val">Cotonou, Bénin, Afrique de l'Ouest</span></div></div>
+        <div class="citem"><div class="cico"><i class="fas fa-phone"></i></div><div><span class="ctxt-label">Téléphone</span><span class="ctxt-val">+229 XX XX XX XX</span></div></div>
+        <div class="citem"><div class="cico"><i class="fab fa-whatsapp"></i></div><div><span class="ctxt-label">WhatsApp</span><span class="ctxt-val">+229 XX XX XX XX</span></div></div>
+        <div class="citem"><div class="cico"><i class="fas fa-envelope"></i></div><div><span class="ctxt-label">Email</span><span class="ctxt-val">contact@labella-pizza.bj</span></div></div>
+        <div class="socials">
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <div class="map-placeholder"><i class="fas fa-map-pin"></i><p>Cotonou, Bénin<br><small>Insérez votre lien Google Maps ici</small></p></div>
+      </div>
+      <div class="fade-up" style="transition-delay:.2s">
+        <div class="hours-card">
+          <div class="hours-title"><i class="fas fa-clock" style="color:var(--orange);margin-right:8px"></i>Horaires d'ouverture</div>
+          <div class="hour-row"><span class="hour-day">Lundi – Samedi</span><span class="hour-time">11h00 – 22h00</span></div>
+          <div class="hour-row"><span class="hour-day">Dimanche</span><span class="hour-time">12h00 – 21h00</span></div>
+          <div id="status-badge" class="status-badge open"><span class="status-dot"></span><span id="status-text">Ouvert maintenant</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb">❓ FAQ</div>
+      <h2 class="st">Questions<br><span class="gt">fréquentes</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up"><div class="faq-q"><span>Combien coûte la livraison ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-body"><p>La livraison est offerte pour toute commande supérieure à 5 000 FCFA. En dessous, des frais de 500 FCFA s'appliquent selon la distance.</p></div></div>
+      <div class="faq-item fade-up" style="transition-delay:.07s"><div class="faq-q"><span>Dans quels quartiers livrez-vous ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-body"><p>Nous livrons dans tout Cotonou : Centre-ville, Akpakpa, Cadjehoun, Fidjrossè, Abomey-Calavi et environs. Contactez-nous pour les zones éloignées.</p></div></div>
+      <div class="faq-item fade-up" style="transition-delay:.14s"><div class="faq-q"><span>Quels modes de paiement acceptez-vous ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-body"><p>Nous acceptons le cash à la livraison, MTN Mobile Money et Moov Money. Le paiement se fait à la réception de votre commande.</p></div></div>
+      <div class="faq-item fade-up" style="transition-delay:.21s"><div class="faq-q"><span>Peut-on personnaliser sa pizza ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-body"><p>Oui ! Utilisez le champ "Instructions spéciales" dans le formulaire pour indiquer vos préférences (sans olives, extra fromage, etc.).</p></div></div>
+      <div class="faq-item fade-up" style="transition-delay:.28s"><div class="faq-q"><span>Combien de temps pour recevoir ma commande ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div><div class="faq-body"><p>Délai moyen de 30 minutes. En heure de pointe, il peut aller jusqu'à 45 minutes. Vous serez contacté par WhatsApp pour un suivi en temps réel.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">La Bella<span>.</span></div>
+        <p class="ftagline">Artisanale. Rapide. Inoubliable.</p>
+        <div class="socials">
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="flinks-title">Navigation</h4>
+        <ul class="flinks">
+          <li><a href="#hero"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="#menu"><i class="fas fa-pizza-slice"></i> Notre Menu</a></li>
+          <li><a href="#order"><i class="fas fa-shopping-cart"></i> Commander</a></li>
+          <li><a href="#how"><i class="fas fa-motorcycle"></i> Livraison</a></li>
+          <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="flinks-title">Nos Pizzas</h4>
+        <ul class="flinks">
+          <li><a href="#menu"><i class="fas fa-circle"></i> Margherita</a></li>
+          <li><a href="#menu"><i class="fas fa-circle"></i> La Toscane</a></li>
+          <li><a href="#menu"><i class="fas fa-circle"></i> La Fumée</a></li>
+          <li><a href="#menu"><i class="fas fa-circle"></i> 4 Fromages</a></li>
+          <li><a href="#menu"><i class="fas fa-circle"></i> La Épicée</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fcopy">© 2026 La Bella Pizzeria — Cotonou, Bénin · Tous droits réservés</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div id="wa-float">
+  <a href="https://wa.me/229XXXXXXXXX?text=Bonjour%2C%20je%20voudrais%20commander%20une%20pizza%20!" target="_blank" class="wa-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+</div>
+
+<script>
+/* ── SCROLL PROGRESS ── */
+const bar = document.getElementById('scroll-bar');
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  if (bar) bar.style.width = (s / h * 100) + '%';
+}, { passive: true });
+
+/* ── NAV SHRINK + SCROLLSPY ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+  // scrollspy
+  const nh = nav ? nav.offsetHeight : 70;
+  let cur = '';
+  document.querySelectorAll('section[id]').forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - nh - 30) cur = sec.id;
+  });
+  document.querySelectorAll('.nl').forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + cur));
+  // quick order bar
+  const qbar = document.getElementById('qbar');
+  const hero = document.getElementById('hero');
+  if (qbar && hero) qbar.classList.toggle('visible', window.scrollY > hero.offsetHeight * 0.6);
+}, { passive: true });
+
+/* ── HAMBURGER ── */
+function closeMM() {
+  document.getElementById('mmenu').classList.remove('open');
+  document.getElementById('ham').innerHTML = '<i class="fas fa-bars"></i>';
+  document.body.style.overflow = '';
+}
+document.getElementById('ham').addEventListener('click', () => {
+  const mm = document.getElementById('mmenu');
+  const open = mm.classList.toggle('open');
+  document.getElementById('ham').innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const h = a.getAttribute('href');
+    if (h === '#') return;
+    e.preventDefault();
+    const t = document.querySelector(h);
+    if (t) window.scrollTo({ top: t.offsetTop - (nav ? nav.offsetHeight : 70) - 8, behavior: 'smooth' });
+    closeMM();
+  });
+});
+
+/* ── FADE UP (IntersectionObserver) ── */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+/* ── MENU FILTER ── */
+const boissons = [
+  { name: 'Coca-Cola 33cl', price: '500 FCFA' },
+  { name: 'Jus de Bissap', price: '600 FCFA' },
+  { name: 'Eau minérale', price: '300 FCFA' },
+  { name: 'Jus de fruits frais', price: '700 FCFA' },
+];
+const desserts = [
+  { name: 'Tiramisu maison', price: '1 500 FCFA' },
+  { name: 'Brownie chocolat', price: '1 200 FCFA' },
+  { name: 'Glace artisanale', price: '1 000 FCFA' },
+];
+
+function renderListGrid(items) {
+  const lg = document.getElementById('lgrid');
+  lg.innerHTML = items.map(i => `<div class="lcard"><span class="lcard-name">${i.name}</span><span class="lcard-price">${i.price}</span></div>`).join('');
+  lg.style.display = 'grid';
+}
+
+document.querySelectorAll('.ftab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const f = tab.dataset.filter;
+    const mg = document.getElementById('mgrid');
+    const lg = document.getElementById('lgrid');
+    if (f === 'boisson') { mg.style.display = 'none'; renderListGrid(boissons); }
+    else if (f === 'dessert') { mg.style.display = 'none'; renderListGrid(desserts); }
+    else {
+      mg.style.display = 'grid'; lg.style.display = 'none';
+      document.querySelectorAll('.mcard').forEach(c => {
+        c.classList.toggle('hidden', c.dataset.cat !== f);
+      });
+    }
+  });
+});
+
+/* ── SELECT PIZZA FROM CARD ── */
+function selectPizza(name) {
+  const sel = document.getElementById('fpizza');
+  if (sel) {
+    for (let opt of sel.options) { if (opt.text.startsWith(name)) { sel.value = opt.value || opt.text; break; } }
+  }
+  document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ── WHATSAPP FORM ── */
+document.getElementById('oform').addEventListener('submit', e => {
+  e.preventDefault();
+  const name   = document.getElementById('fname').value;
+  const phone  = document.getElementById('fphone').value;
+  const addr   = document.getElementById('faddr').value;
+  const quart  = document.getElementById('fquartier').value;
+  const pizza  = document.getElementById('fpizza').value;
+  const size   = document.querySelector('input[name="size"]:checked')?.value || 'M';
+  const note   = document.getElementById('fnote').value;
+  const msg = `🍕 *NOUVELLE COMMANDE — La Bella Pizzeria*\n\n👤 *Nom:* ${name}\n📞 *WhatsApp:* ${phone}\n📍 *Adresse:* ${addr}\n🏘️ *Quartier:* ${quart}\n\n🍕 *Pizza:* ${pizza}\n📏 *Taille:* ${size}\n📝 *Instructions:* ${note || 'Aucune'}\n\n⏱️ _Commande passée via le site web_`;
+  const url = `https://wa.me/229XXXXXXXXX?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+  const sm = document.getElementById('smsg');
+  sm.style.display = 'flex';
+  setTimeout(() => { sm.style.display = 'none'; }, 5000);
+});
+
+/* ── TESTIMONIALS CAROUSEL ── */
+const ttrack = document.getElementById('ttrack');
+const tdots  = document.querySelectorAll('.tdot');
+const tcards = document.querySelectorAll('.tcard');
+let tcur = 0;
+function tPerView() { return window.innerWidth < 540 ? 1 : window.innerWidth < 860 ? 2 : 3; }
+function tGoTo(i) {
+  if (!ttrack) return;
+  const pv = tPerView(); const max = Math.max(0, tcards.length - pv);
+  tcur = Math.max(0, Math.min(i, max));
+  const w = ttrack.parentElement.offsetWidth; const gap = 24;
+  const cw = (w - (pv - 1) * gap) / pv;
+  ttrack.style.transform = `translateX(-${tcur * (cw + gap)}px)`;
+  tdots.forEach((d, j) => d.classList.toggle('active', j === Math.min(tcur, tdots.length - 1)));
+}
+document.getElementById('tnext').addEventListener('click', () => tGoTo(tcur + 1));
+document.getElementById('tprev').addEventListener('click', () => tGoTo(tcur - 1));
+tdots.forEach(d => d.addEventListener('click', () => tGoTo(+d.dataset.i)));
+window.addEventListener('resize', () => tGoTo(tcur), { passive: true });
+tGoTo(0);
+setInterval(() => tGoTo(tcur + 1 > tcards.length - tPerView() ? 0 : tcur + 1), 4500);
+
+/* ── FAQ ACCORDION ── */
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const body = item.querySelector('.faq-body');
+  if (!q || !body) return;
+  body.style.maxHeight = '0'; body.style.overflow = 'hidden'; body.style.transition = 'max-height 0.4s ease';
+  q.addEventListener('click', () => {
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(it => {
+      it.classList.remove('open'); it.querySelector('.faq-body').style.maxHeight = '0';
+      const ic = it.querySelector('.faq-icon i'); if (ic) ic.className = 'fas fa-plus';
+    });
+    if (!open) {
+      item.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px';
+      const ic = item.querySelector('.faq-icon i'); if (ic) ic.className = 'fas fa-minus';
+    }
+  });
+});
+
+/* ── OPEN / CLOSED STATUS ── */
+function checkStatus() {
+  const now = new Date();
+  const day = now.getDay(); // 0=sun
+  const h = now.getHours() + now.getMinutes() / 60;
+  let open = false;
+  if (day >= 1 && day <= 6) open = h >= 11 && h < 22;
+  else open = h >= 12 && h < 21;
+  const badge = document.getElementById('status-badge');
+  const txt   = document.getElementById('status-text');
+  if (badge && txt) {
+    badge.className = 'status-badge ' + (open ? 'open' : 'closed');
+    txt.textContent = open ? 'Ouvert maintenant' : 'Fermé actuellement';
+  }
+}
+checkStatus();
+</script>
+</body>
+</html>

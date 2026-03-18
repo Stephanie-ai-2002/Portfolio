@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0a0a">
+<meta name="description" content="Stéphanie HOUNKPATIN — Développeuse Full Stack & Créatrice Visuelle IA à Parakou, Bénin. Sites web, visuels IA, vidéos publicitaires,Front-End, Back-End.">
+<meta name="keywords" content="développeuse web Bénin, portfolio, sites web Parakou, visuels IA, freelance">
+<meta name="author" content="Stéphanie HOUNKPATIN">
+<meta property="og:title" content="Stéphanie HOUNKPATIN — Portfolio">
+<meta property="og:description" content="Développeuse Full Stack & Créatrice Visuelle IA">
+<meta property="og:image" content="https://ton-site.netlify.app/images/ana2.webp">
+<meta property="og:url" content="https://ton-site.netlify.app">
+<meta property="og:type" content="website">
+<title>Stéphanie HOUNKPATIN — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="scroll-bar"></div>
+<div id="splash"></div>
+
+<!-- ════════ NAV ════════ -->
+<nav id="nav">
+  <a href="#hero" class="nlogo">
+    <div class="nli">SH</div>
+    <span class="nlt">Stéphanie<span>.</span></span>
+  </a>
+  <div class="nlinks">
+    <a href="#hero"         class="nl active">Accueil</a>
+    <a href="#about"        class="nl">À propos</a>
+    <a href="#services"     class="nl">Services</a>
+    <a href="#portfolio"    class="nl">Portfolio</a>
+    <a href="#skills"       class="nl">Compétences</a>
+    <a href="#stats"        class="nl">Stats</a>
+    <a href="#process"      class="nl">Processus</a>
+    <a href="#testimonials" class="nl">Avis</a>
+    <a href="#faq"          class="nl">FAQ</a>
+    <a href="#contact"      class="nl">Contact</a>
+  </div>
+  <div class="nr">
+    <button class="tgl" id="tgl" aria-label="Changer thème">
+      <i class="fas fa-sun tgl-sun"></i>
+      <i class="fas fa-moon tgl-moon"></i>
+      <span class="tgl-knob"></span>
+    </button>
+    <button class="ham" id="ham" aria-label="Menu">
+      <i class="fas fa-bars ib"></i>
+      <i class="fas fa-times it"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mmenu" id="mmenu">
+  <div class="mmenu-label">Navigation</div>
+  <a href="#hero"         class="mml" onclick="closeMM()"><i class="fas fa-home"></i><span>Accueil</span></a>
+  <a href="#about"        class="mml" onclick="closeMM()"><i class="fas fa-user"></i><span>À propos</span></a>
+  <a href="#services"     class="mml" onclick="closeMM()"><i class="fas fa-briefcase"></i><span>Services</span></a>
+  <a href="#portfolio"    class="mml" onclick="closeMM()"><i class="fas fa-th"></i><span>Portfolio</span></a>
+  <a href="#skills"       class="mml" onclick="closeMM()"><i class="fas fa-layer-group"></i><span>Compétences</span></a>
+  <a href="#stats"        class="mml" onclick="closeMM()"><i class="fas fa-chart-bar"></i><span>Stats</span></a>
+  <a href="#process"      class="mml" onclick="closeMM()"><i class="fas fa-map-signs"></i><span>Processus</span></a>
+  <a href="#testimonials" class="mml" onclick="closeMM()"><i class="fas fa-star"></i><span>Avis</span></a>
+  <a href="#faq"          class="mml" onclick="closeMM()"><i class="fas fa-question-circle"></i><span>FAQ</span></a>
+  <a href="#contact"      class="mml" onclick="closeMM()"><i class="fas fa-envelope"></i><span>Contact</span></a>
+</div>
+
+<!-- ════════ HERO ════════ -->
+<section id="hero">
+  <div class="hero-mesh"><span></span><span></span><span></span></div>
+  <div class="hdots"></div>
+  <svg class="hswirl" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M300,80 Q520,160 460,350 Q400,540 180,480 Q-40,420 60,220 Q160,-20 300,80Z" stroke="#e84c00" stroke-width="1.2" opacity="0.18" fill="none"/>
+    <path d="M300,110 Q490,185 435,355 Q380,525 185,465 Q-10,405 80,225 Q170,20 300,110Z" stroke="#e84c00" stroke-width="0.8" opacity="0.12" fill="none"/>
+    <path d="M300,140 Q460,210 410,360 Q360,510 190,450 Q20,390 100,230 Q180,60 300,140Z" stroke="#e84c00" stroke-width="0.5" opacity="0.08" fill="none"/>
+    <circle cx="300" cy="300" r="220" stroke="#e84c00" stroke-width="0.6" opacity="0.07"/>
+    <circle cx="300" cy="300" r="280" stroke="#e84c00" stroke-width="0.4" opacity="0.04"/>
+    <path d="M400,100 Q500,200 450,320 Q420,380 380,340" stroke="#e84c00" stroke-width="1" opacity="0.15" fill="none" stroke-linecap="round"/>
+    <path d="M420,80 Q540,180 490,310" stroke="#e84c00" stroke-width="0.6" opacity="0.1" fill="none" stroke-linecap="round"/>
+    <path d="M480,120 Q560,200 530,290" stroke="#e84c00" stroke-width="0.4" opacity="0.07" fill="none" stroke-linecap="round"/>
+  </svg>
+  <div class="container">
+    <div class="hgrid">
+      <div class="hphoto fade-up">
+        <div class="hpouter">
+          <div class="hpframe">
+            <div class="hpinner">
+              <div class="pph">
+                <p><img src="ana2.webp" alt="Stéphanie HOUNKPATIN" width="400" height="533" fetchpriority="high" decoding="async"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="htcol">
+        <div class="heyebrow fade-up">
+          <span class="hedot"></span>
+          Full Stack Dev &amp; Créatrice Visuelle IA
+        </div>
+        <h1 class="htitle fade-up" style="transition-delay:.08s">
+          Salut, je suis<br>
+          <span class="nml glitch" data-text="Stéphanie">Stéphanie</span>
+        </h1>
+        <div class="twrap fade-up" style="transition-delay:.16s">
+          <span id="tw"></span><span class="twc">|</span>
+        </div>
+        <p class="hsub fade-up" style="transition-delay:.24s">
+          J'accompagne les entrepreneurs à bâtir une présence digitale professionnelle — du code au visuel.
+        </p>
+        <div class="hbtns fade-up" style="transition-delay:.32s">
+          <div class="mag-wrap"><button class="btn-p mag" onclick="document.querySelector('#portfolio').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-rocket"></i> Voir mes projets
+          </button></div>
+        </div>
+        <div class="hsocials fade-up" style="transition-delay:.40s;display:flex;flex-direction:row;align-items:center;gap:10px;margin-bottom:clamp(22px,3.5vw,36px);">
+          <a href="https://www.facebook.com/profile.php?id=100084818984700" class="sicon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/stephie-hounkpatin-b2383a369/" class="sicon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Stephanie-ai-2002" class="sicon"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/stephaniehounkpatin.2002/" class="sicon"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ MARQUEE ════════ -->
+<div class="mwrap">
+  <div class="minr">
+    <span>React</span><span class="sep">◆</span><span>Css</span><span class="sep">◆</span>
+    <span>Canva</span><span class="sep">◆</span><span>Html</span><span class="sep">◆</span>
+    <span>GitHub</span><span class="sep">◆</span><span>JavaScript</span><span class="sep">◆</span>
+    <span>Xampp</span><span class="sep">◆</span><span>MySQL</span><span class="sep">◆</span>
+    <span>Bootstrap</span><span class="sep">◆</span><span>Php</span><span class="sep">◆</span>
+    <span>Visual Studio Code</span><span class="sep">◆</span><span>Canva</span><span class="sep">◆</span>
+    <span>Git</span><span class="sep">◆</span><span>Css</span><span class="sep">◆</span>
+    <span>Canva</span><span class="sep">◆</span><span>Html</span><span class="sep">◆</span>
+    <span>GitHub</span><span class="sep">◆</span><span>JavaScript</span><span class="sep">◆</span>
+    <span>Xampp</span><span class="sep">◆</span><span>MySQL</span><span class="sep">◆</span>
+    <span>Bootstrap</span><span class="sep">◆</span><span>Php</span><span class="sep">◆</span>
+    <span>Visual Studio Code</span><span class="sep">◆</span><span>Canva</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<!-- ════════ ABOUT ════════ -->
+<section id="about">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-user-circle" style="font-size:9px"></i> À propos</div>
+      <h2 class="st">Qui suis-je ?<br><span class="gt">Ma passion, votre succès</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="agrid">
+      <div class="atxt fade-up">
+        <h3 class="aname">Développeuse Full Stack<br><span class="gt">&amp; Créatrice Visuelle IA</span></h3>
+        <p class="abio">Passionnée par l'intersection entre le code et la créativité, je construis des expériences digitales complètes — des interfaces web performantes aux visuels qui captivent l'attention.</p>
+        <p class="abio">Chaque projet est une opportunité de transformer une idée en quelque chose d'impactant. J'accompagne les entrepreneurs à bâtir une présence digitale cohérente, du premier pixel au dernier commit.</p>
+        <ul class="chk">
+          <li><i class="fas fa-code" style="color:var(--orange)"></i> Full Stack Developer — Html, Css, JavaScript, Php</li>
+          <li><i class="fas fa-magic" style="color:var(--orange)"></i> Créatrice Visuels &amp; Affiches IA</li>
+          <li><i class="fas fa-film" style="color:var(--orange)"></i> Vidéos Publicitaires générées par IA</li>
+          <li><i class="fas fa-pen-nib" style="color:var(--orange)"></i> UI/UX Design &amp; Expérience Utilisateur</li>
+        </ul>
+        <div class="atags">
+          <span class="atag">Html</span><span class="atag">Php</span>
+          <span class="atag">Css</span><span class="atag">Visual Studio Code</span>
+          <span class="atag">Bootstrap</span><span class="atag">MySQL</span>
+          <span class="atag">JavaScript</span><span class="atag">Canva</span>
+        </div>
+        <div class="abtns">
+          <a href="#contact" class="btn-o"><i class="fas fa-envelope"></i> Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SERVICES ════════ -->
+<section id="services">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-briefcase" style="font-size:9px"></i> Services</div>
+      <h2 class="st">Ce que je fais<br><span class="gt">pour vous</span></h2>
+      <div class="sl"></div>
+      <p class="ss" style="margin-top:10px">Des solutions complètes pour votre présence digitale</p>
+    </div>
+    <div class="svgrid">
+      <div class="svc fade-up tilt-card">
+        <div class="sico"><i class="fas fa-code"></i></div>
+        <div class="svc-body">
+          <h3 class="stit">Sites Web</h3>
+          <p class="stxt">Interfaces rapides, responsive et intuitives pensées pour convertir vos visiteurs en clients fidèles.</p>
+          <a href="#portfolio" class="slnk">En savoir plus <i class="fas fa-arrow-right" style="font-size:10px"></i></a>
+        </div>
+      </div>
+      <div class="svc fade-up tilt-card" style="transition-delay:.1s">
+        <div class="sico"><i class="fas fa-palette"></i></div>
+        <div class="svc-body">
+          <h3 class="stit">Visuels &amp; Affiches</h3>
+          <p class="stxt">Créations graphiques percutantes qui reflètent votre identité de marque et capturent l'attention.</p>
+          <a href="#portfolio" class="slnk">En savoir plus <i class="fas fa-arrow-right" style="font-size:10px"></i></a>
+        </div>
+      </div>
+      <div class="svc fade-up tilt-card" style="transition-delay:.2s">
+        <div class="sico"><i class="fas fa-film"></i></div>
+        <div class="svc-body">
+          <h3 class="stit">Vidéos Pub IA</h3>
+          <p class="stxt">Contenus vidéo professionnels générés par IA, prêts à booster votre visibilité sur les réseaux.</p>
+          <a href="#portfolio" class="slnk">En savoir plus <i class="fas fa-arrow-right" style="font-size:10px"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PORTFOLIO ════════ -->
+<section id="portfolio">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-th" style="font-size:9px"></i> Portfolio</div>
+      <h2 class="st">Mes réalisations<br><span class="gt">récentes</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="ftabs fade-up">
+      <button class="ftab active" data-filter="tous">Tous</button>
+      <button class="ftab" data-filter="web">Sites Web</button>
+      <button class="ftab" data-filter="affiche">Affiches</button>
+      <button class="ftab" data-filter="video">Vidéos Pub</button>
+    </div>
+    <div class="pgrid-wrap fade-up">
+      <div class="pgrid" id="pgrid">
+        <div class="pcard tilt-card" data-category="web">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><img src="maisonnoir.webp" width="600" height="338" loading="lazy" decoding="async" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35)"><div class="povl"><a href="maisonnoir.html">Voir le projet</a></div></div>
+          <div class="pbody"><span class="pbadge">Site Web</span><h4 class="ptit">E-commerce Mode</h4><p class="pdesc">Boutique en ligne complète avec panier.</p><a href="maisonnoir.html" class="plnk">Voir →</a><div class="ptags"><span class="ptag">Html</span><span class="ptag">Css</span><span class="ptag">JavaScript</span></div></div>
+        </div>
+        <div class="pcard tilt-card" data-category="affiche">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><img src="affiche1.webp" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35)"><div class="povl"><img src="affiche1.jpg"><span>Voir le projet</span></div></div>
+          <div class="pbody"><span class="pbadge">Affiche</span><h4 class="ptit">Campagne Beauté</h4><p class="pdesc">Série d'affiches promotionnelles générées par IA pour une marque de cosmétiques.</p><a href="affiche.webp" class="plnk">Voir →</a><div class="ptags"><span class="ptag">Figma</span><span class="ptag">Canva</span></div></div>
+        </div>
+        <div class="pcard tilt-card" data-category="video">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><img src="video.webp" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35) "><div class="povl"><img src="video.webp"><a href="#">Voir le projet</a></div></div>
+          <div class="pbody"><span class="pbadge">Vidéo Pub</span><h4 class="ptit">Spot Publicitaire</h4><p class="pdesc">Vidéo publicitaire 30s pour une marque alimentaire locale, virale sur Instagram.</p><span class="plnk">Voir →</span><div class="ptags"><span class="ptag">Google</span><span class="ptag">IA Veo3</span></div></div>
+        </div>
+        <div class="pcard tilt-card" data-category="web">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><img src="avocat.webp" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35)"><div class="povl"><i class="fas fa-external-link-alt"></i><a href="cabinetavocat.html">Voir le projet</a></div></div>
+          <div class="pbody"><span class="pbadge">Site Web</span><h4 class="ptit">Portfolio Cabinet</h4><p class="pdesc">Site vitrine pour un cabinet d'avocats avec système de prise de rendez-vous.</p><a href="cabinetavocat.html" class="plnk">Voir →</a><div class="ptags"><span class="ptag">JavaScript</span><span class="ptag">Bootstrap</span></div></div>
+        </div>
+        <div class="pcard tilt-card" data-category="affiche">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><i class="fas fa-leaf" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35)"></i><div class="povl"><a href="affiche1.jpg">Voir le projet</a></div></div>
+          <div class="pbody"><span class="pbadge">Affiche</span><h4 class="ptit">Branding Bio</h4><p class="pdesc">Identité visuelle complète pour une marque de produits bio et naturels.</p><a href="affiche.webp" class="plnk">Voir →</a><div class="ptags"><span class="ptag">Figma</span><span class="ptag">Canva</span></div></div>
+        </div>
+        <div class="pcard tilt-card" data-category="video">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><i class="fas fa-music" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35)"></i><div class="povl"><i class="fas fa-external-link-alt"></i><span>Voir le projet</span></div></div>
+          <div class="pbody"><span class="pbadge">Vidéo Pub</span><h4 class="ptit">Clip Promotionnel</h4><p class="pdesc">Clip promotionnel pour un artiste musical avec visuels IA époustouflants.</p><span class="plnk">Voir →</span><div class="ptags"><span class="ptag">Google</span><span class="ptag">Veo3</span></div></div>
+        </div>
+        <div class="pcard tilt-card" data-category="web">
+          <div class="pimg" style="background:linear-gradient(135deg,#0d0d0d,#1a0a00);font-size:0"><img src="pizza.webp" style="font-size:clamp(32px,5vw,48px);color:rgba(232,76,0,0.35)"><div class="povl"><i class="fas fa-external-link-alt"></i><a href="pizza.html">Voir le projet</a></div></div>
+          <div class="pbody"><span class="pbadge">Site Web</span><h4 class="ptit">Site vitrine — Pizzeria</h4><p class="pdesc">Site vitrine pour restaurant de pizzaerie avec système de commande.</p><a href="pizza.html" class="plnk">Voir →</a><div class="ptags"><span class="ptag">JavaScript</span><span class="ptag">Bootstrap</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="p-nav fade-up">
+      <button class="p-arr" id="pprev"><i class="fas fa-chevron-left"></i></button>
+      <span class="p-dot active" data-pi="0"></span>
+      <span class="p-dot" data-pi="1"></span>
+      <span class="p-dot" data-pi="2"></span>
+      <span class="p-dot" data-pi="3"></span>
+      <span class="p-dot" data-pi="4"></span>
+      <button class="p-arr" id="pnext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SKILLS ════════ -->
+<section id="skills">
+  <div class="container">
+    <div class="skgrid">
+      <div class="skl fade-up">
+        <div class="sb" style="margin-bottom:13px"><i class="fas fa-layer-group" style="font-size:9px"></i> Compétences</div>
+        <h3>Expertise<br><span class="gt">technique &amp; créative</span></h3>
+        <p>Une combinaison rare de compétences techniques et créatives pour des projets complets et cohérents.</p>
+        <ul class="chk">
+          <li><i class="fas fa-calendar-check" style="color:var(--orange)"></i> 3+ ans d'expérience en développement web</li>
+          <li><i class="fas fa-robot" style="color:var(--orange)"></i> Maîtrise des outils IA de dernière génération</li>
+          <li><i class="fas fa-shipping-fast" style="color:var(--orange)"></i> Livraison dans les délais, toujours</li>
+          <li><i class="fas fa-headset" style="color:var(--orange)"></i> Support et maintenance post-livraison</li>
+        </ul>
+      </div>
+      <div id="skbars" class="skbars fade-up" style="transition-delay:.2s">
+        <div><div class="skhead"><span class="sknm"><i class="fas fa-code" style="color:var(--orange);margin-right:6px;font-size:10px"></i>Développement Web</span><span class="skpct">90%</span></div><div class="sktrack"><div class="skfill" data-width="90%"></div></div></div>
+        <div><div class="skhead"><span class="sknm"><i class="fas fa-magic" style="color:var(--orange);margin-right:6px;font-size:10px"></i>Création Visuels IA</span><span class="skpct">88%</span></div><div class="sktrack"><div class="skfill" data-width="88%"></div></div></div>
+        <div><div class="skhead"><span class="sknm"><i class="fas fa-pen-nib" style="color:var(--orange);margin-right:6px;font-size:10px"></i>UI/UX Design</span><span class="skpct">82%</span></div><div class="sktrack"><div class="skfill" data-width="82%"></div></div></div>
+        <div><div class="skhead"><span class="sknm"><i class="fas fa-film" style="color:var(--orange);margin-right:6px;font-size:10px"></i>Vidéo Production IA</span><span class="skpct">85%</span></div><div class="sktrack"><div class="skfill" data-width="85%"></div></div></div>
+        <div><div class="skhead"><span class="sknm"><i class="fas fa-tachometer-alt" style="color:var(--orange);margin-right:6px;font-size:10px"></i>SEO &amp; Performance</span><span class="skpct">78%</span></div><div class="sktrack"><div class="skfill" data-width="78%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STATS ════════ -->
+<section id="stats">
+  <div class="container">
+    <div class="strow fade-up">
+      <div class="stcl"><span class="stbig" data-target="15" data-suffix="+">0</span><span class="stlbl"><i class="fas fa-globe" style="margin-right:4px"></i>Sites livrés</span></div>
+      <div class="stcl"><span class="stbig" data-target="30" data-suffix="+">0</span><span class="stlbl"><i class="fas fa-magic" style="margin-right:4px"></i>Visuels IA</span></div>
+      <div class="stcl"><span class="stbig" data-target="50" data-suffix="+">0</span><span class="stlbl"><i class="fas fa-film" style="margin-right:4px"></i>Vidéos pub</span></div>
+      <div class="stcl"><span class="stbig" data-target="100" data-suffix="%">0</span><span class="stlbl"><i class="fas fa-heart" style="margin-right:4px"></i>Satisfaits</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PROCESS ════════ -->
+<section id="process">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-map-signs" style="font-size:9px"></i> Comment je travaille</div>
+      <h2 class="st">Mon processus<br><span class="gt">en 4 étapes</span></h2>
+      <div class="sl"></div>
+      <p class="ss" style="margin-top:10px">De votre idée à la livraison, une méthode claire et transparente</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc-step fade-up">
+        <div class="proc-num">01</div>
+        <span class="proc-icon"><i class="fas fa-comments"></i></span>
+        <div class="proc-title">Discovery</div>
+        <p class="proc-desc">On échange sur votre vision, vos objectifs et votre audience pour définir la direction parfaite.</p>
+      </div>
+      <div class="proc-step fade-up" style="transition-delay:.1s">
+        <div class="proc-num">02</div>
+        <span class="proc-icon"><i class="fas fa-drafting-compass"></i></span>
+        <div class="proc-title">Design</div>
+        <p class="proc-desc">Je crée une maquette visuelle complète que vous validez avant de commencer le développement.</p>
+      </div>
+      <div class="proc-step fade-up" style="transition-delay:.2s">
+        <div class="proc-num">03</div>
+        <span class="proc-icon"><i class="fas fa-code"></i></span>
+        <div class="proc-title">Développement</div>
+        <p class="proc-desc">Code propre, performant et responsive. Vous suivez l'avancement en temps réel via des démos.</p>
+      </div>
+      <div class="proc-step fade-up" style="transition-delay:.3s">
+        <div class="proc-num">04</div>
+        <span class="proc-icon"><i class="fas fa-rocket"></i></span>
+        <div class="proc-title">Livraison</div>
+        <p class="proc-desc">Mise en ligne, tests finaux et formation. Je reste disponible pour le suivi post-lancement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TÉMOIGNAGES ════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-star" style="font-size:9px"></i> Témoignages</div>
+      <h2 class="st">Ce que disent<br><span class="gt">mes clients</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="testi-carousel fade-up" style="transition-delay:.1s">
+      <div class="testi-track" id="testi-track">
+        <div class="testi-card tilt-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">« Stéphanie a transformé mon idée en un site web bluffant en un temps record. Son sens du détail et sa créativité sont hors du commun. Je recommande à 100% ! »</p>
+          <div class="testi-author"><div class="testi-avatar">AK</div><div><div class="testi-name">Amos Koffi</div><div class="testi-role">CEO, AK Consulting — Cotonou</div></div></div>
+        </div>
+        <div class="testi-card tilt-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">« Les visuels IA qu'elle a créés pour ma marque ont complètement changé notre image. On reçoit des compliments chaque jour. Un talent exceptionnel ! »</p>
+          <div class="testi-author"><div class="testi-avatar">MF</div><div><div class="testi-name">Marie-France Adjo</div><div class="testi-role">Fondatrice, Beauté Naturelle</div></div></div>
+        </div>
+        <div class="testi-card tilt-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testi-text">« Professionnelle, rapide et toujours à l'écoute. Sa vidéo publicitaire a généré +300% d'engagement sur nos réseaux en moins d'une semaine. »</p>
+          <div class="testi-author"><div class="testi-avatar">SD</div><div><div class="testi-name">Samuel Dossou</div><div class="testi-role">Directeur Marketing, FoodBenin</div></div></div>
+        </div>
+        <div class="testi-card tilt-card">
+          <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+          <p class="testi-text">« Notre site e-commerce tourne parfaitement depuis le lancement. Elle a pensé à tous les détails UX qu'on n'aurait jamais vus. Vraiment impressionnant. »</p>
+          <div class="testi-author"><div class="testi-avatar">LN</div><div><div class="testi-name">Lina Nanako</div><div class="testi-role">Gérante, Boutique Mode Lagos</div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-nav">
+      <button class="testi-arr" id="tprev"><i class="fas fa-chevron-left"></i></button>
+      <span class="testi-dot active" data-i="0"></span>
+      <span class="testi-dot" data-i="1"></span>
+      <span class="testi-dot" data-i="2"></span>
+      <button class="testi-arr" id="tnext"><i class="fas fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-paper-plane" style="font-size:9px"></i> Contact</div>
+      <h2 class="st">Parlons de<br><span class="gt">votre projet</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="cgrid">
+      <div class="fade-up">
+        <div class="citem"><div class="cico"><i class="fas fa-envelope"></i></div><div class="ctxt"><span class="clbl">Email</span><a href="mailto:stephaniehounkpatin.2002@gmail.com?subject=Contact%20depuis%20le%20site&body=Bonjour,%20je%20vous%20contacte%20depuis%20votre%20site.">Me contacter</a></div></div>
+        <div class="citem"><div class="cico"><i class="fab fa-whatsapp"></i></div><div class="ctxt"><span class="clbl">WhatsApp</span>+229 0161349830</div></div>
+        <div class="citem"><div class="cico"><i class="fas fa-map-marker-alt"></i></div><div class="ctxt"><span class="clbl">Localisation</span>Parakou, Bénin</div></div>
+        <div class="citem"><div class="cico"><i class="fas fa-clock"></i></div><div class="ctxt"><span class="clbl">Disponibilité</span>24H/24</div></div>
+      </div>
+      <div class="fcard fade-up" style="transition-delay:.2s">
+        <form action="https://formspree.io/f/mjgaaayp" method="post" id="cform">
+          <div class="fg"><input name="name" class="fi" type="text" placeholder="Votre nom complet" required></div>
+          <div class="fg"><input name="email" class="fi" type="email" placeholder="Votre adresse email" required></div>
+          <div class="fg">
+            <select name="projet" class="fsl" required>
+              <option value="">Type de projet</option>
+              <option>Site Web</option><option>Visuels</option>
+              <option>Vidéo Publicitaire IA</option><option>Autre</option>
+            </select>
+          </div>
+          <div class="fg"><textarea name="message" class="fta" placeholder="Décrivez votre projet..." required></textarea></div>
+          <div class="fbtns">
+            <button type="submit" class="btn-p"><i class="fas fa-paper-plane"></i> Envoyer</button>
+          </div>
+          <div id="smsg">
+            <i class="fas fa-check-circle" style="color:var(--orange);font-size:17px;flex-shrink:0"></i>
+            Message envoyé ! Je vous réponds dans les 24h. 🎉
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="sh fade-up">
+      <div class="sb"><i class="fas fa-question-circle" style="font-size:9px"></i> FAQ</div>
+      <h2 class="st">Questions<br><span class="gt">fréquentes</span></h2>
+      <div class="sl"></div>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-q"><span>Combien coûte un site web ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div>
+        <div class="faq-body"><p>Chaque projet est unique. Les tarifs varient selon la complexité, les fonctionnalités et les délais. Contactez-moi pour un devis gratuit et personnalisé sous 24h.</p></div>
+      </div>
+      <div class="faq-item fade-up" style="transition-delay:.07s">
+        <div class="faq-q"><span>Quel est le délai moyen pour livrer un projet ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div>
+        <div class="faq-body"><p>Un site vitrine prend généralement 1 à 2 semaines. Une application web plus complexe peut prendre 3 à 6 semaines. Je vous donne toujours une estimation précise avant de démarrer.</p></div>
+      </div>
+      <div class="faq-item fade-up" style="transition-delay:.14s">
+        <div class="faq-q"><span>Travaillez-vous avec des clients hors du Bénin ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div>
+        <div class="faq-body"><p>Absolument ! Je collabore avec des clients dans toute l'Afrique francophone et au-delà. Tout se passe à distance via WhatsApp, email et outils de collaboration en ligne.</p></div>
+      </div>
+      <div class="faq-item fade-up" style="transition-delay:.21s">
+        <div class="faq-q"><span>Proposez-vous de la maintenance après livraison ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div>
+        <div class="faq-body"><p>Oui ! Je propose des contrats de maintenance mensuelle pour garder votre site à jour, sécurisé et performant. C'est fortement recommandé pour éviter les mauvaises surprises.</p></div>
+      </div>
+      <div class="faq-item fade-up" style="transition-delay:.28s">
+        <div class="faq-q"><span>Comment se déroule le paiement ?</span><div class="faq-icon"><i class="fas fa-plus"></i></div></div>
+        <div class="faq-body"><p>Je travaille avec un acompte de 50% au démarrage et 50% à la livraison. J'accepte les paiements via Mobile Money (MTN, Moov), virement bancaire.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHATSAPP FLOAT -->
+<div id="wa-float">
+  <span class="wa-label">Discutons de votre projet !</span>
+  <a href="https://wa.me/2290161349830?text=Bonjour%20St%C3%A9phanie%2C%20j%27aimerais%20discuter%20d%27un%20projet" target="_blank" class="wa-btn" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  <div class="container">
+    <div class="fgrid">
+      <div>
+        <div class="fbrand">Stéphanie<span style="color:var(--orange)">.</span></div>
+        <p class="fdesc">Développeuse Full Stack &amp; Créatrice Visuelle IA.</p>
+        <div class="fsocs">
+          <a href="https://www.facebook.com/profile.php?id=100084818984700" class="sicon"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.linkedin.com/in/stephie-hounkpatin-b2383a369/" class="sicon"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/Stephanie-ai-2002" class="sicon"><i class="fab fa-github"></i></a>
+          <a href="https://www.instagram.com/stephaniehounkpatin.2002/" class="sicon"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4 class="fctit">Navigation</h4>
+        <ul class="flnks">
+          <li><a href="#hero"><i class="fas fa-home"></i> Accueil</a></li>
+          <li><a href="#about"><i class="fas fa-user"></i> À propos</a></li>
+          <li><a href="#services"><i class="fas fa-briefcase"></i> Services</a></li>
+          <li><a href="#portfolio"><i class="fas fa-th"></i> Portfolio</a></li>
+          <li><a href="#skills"><i class="fas fa-layer-group"></i> Compétences</a></li>
+          <li><a href="#stats"><i class="fas fa-chart-bar"></i>Stats</a></li>
+          <li><a href="#process"><i class="fas fa-map-signs"></i> Processus</a></li>
+          <li><a href="#testimonials"><i class="fas fa-star"></i> Avis</a></li>
+          <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+          <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="fctit">Services</h4>
+        <ul class="flnks">
+          <li><a href="#services"><i class="fas fa-code"></i> Sites Web</a></li>
+          <li><a href="#services"><i class="fas fa-magic"></i> Visuels</a></li>
+          <li><a href="#services"><i class="fas fa-film"></i> Vidéos Pub IA</a></li>
+          <li><a href="#services"><i class="fas fa-pen-nib"></i> UI/UX Design</a></li>
+          <li><a href="#services"><i class="fas fa-tachometer-alt"></i> SEO &amp; Performance</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="fcopy">© 2026 Stéphanie HOUNKPATIN — Tous droits réservés</div>
+  </div>
+</footer>
+<script src="script.js" defer></script>
+</body>
+</html>
